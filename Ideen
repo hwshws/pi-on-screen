@@ -1,0 +1,32 @@
+Zeitgesteuerte Stundenplanraumanzeige
+Uhrzeit
+Speiseplan -> täglich neu -> 1x Woche in Datenbank einbetten (Änderungen vorbehalten)
+Vetretungsplan aus .docx (Bernhard treten)
+Newsfeed (N24 o.ä.)
+Freizeitgestaltung
+AG-Info tagesaktuell
+
+Gebraucht wird:
+Hardware:
+Pi -> dauerleihgabe HWS
+ggf. S-Video - Adapter (5-10€)
+WLan Stick (aus Urspringer Fundus)
+
+Software: 
+nginx - Webserver
+php
+ssh / sshd
+vnc
+Bash Scripte
+- automatischer Restart und Ausblendung d. Taskleiste
+
+Webserver: modularer Aufbau (Prioritäten in Versionszyklen)
+- Core -> sammelt alles zusammen, und zeigt dass dann an P1
+- VPlan -> aus .docx eine .txt basteln P1
+- Speiseplan -> Leckereien aus der Küche P1
+- Zeit -> selbsterklärend (Datum & Uhrzeit) Pi P1
+- Humor ->  Witz des Tages; Lebensweisheiten von RWe P1
+- Stundenplan -> aus MySQL DB - Fach, Lehrer und Raum auslesen P2
+- AG -> Was'n los? P2
+- News -> RSS von Nachrichtensendern P3
+Überlegung: Berechnung auf U-Blog -> nur Anzeige auf RPi
