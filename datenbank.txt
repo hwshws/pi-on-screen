@@ -5,3 +5,6 @@ USB
 		Lfd. Nr
 		Textstring (den eigentlichen Witz)
 → Zufallszahl wird in Textdatei gespeichert, Spruch wird daraufhin ausgegeben.
+
+
+
