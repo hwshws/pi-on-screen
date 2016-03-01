@@ -9,25 +9,26 @@ AG-Info tagesaktuell
 Gebraucht wird:
 Hardware:
 Pi -> dauerleihgabe HWS
-ggf. S-Video - Adapter (5-10€)
 WLan Stick (aus Urspringer Fundus)
 VGA - HDMI (wie auch immer)
 
 Software: 
-nginx - Webserver
+nginx - Webserver OK (UBlog)
 php
+mysql	tbc
+- phpmyadmin
 ssh / sshd
 vnc
 Bash Scripte
-- automatischer Restart und Ausblendung d. Taskleiste
+- automatischer Restart und Ausblendung d. Taskleiste 0%
 
 Webserver: modularer Aufbau (Prioritäten in Versionszyklen)
 - Core -> sammelt alles zusammen, und zeigt dass dann an P1
 - VPlan -> aus .docx eine .txt basteln P1
-- Speiseplan -> Leckereien aus der Küche P1
-- Zeit -> selbsterklärend (Datum & Uhrzeit) Pi P1
-- Humor ->  Witz des Tages; Lebensweisheiten von RWe P1
-- Stundenplan -> aus MySQL DB - Fach, Lehrer und Raum auslesen P2
-- AG -> Was'n los? P2
-- News -> RSS von Nachrichtensendern P3
+- Speiseplan -> Leckereien aus der Küche P1 MySQL steht
+- Zeit -> selbsterklärend (Datum & Uhrzeit) P1 OK
+- Humor ->  Witz des Tages; Lebensweisheiten von RWe P1 MySQL steht
+- Stundenplan -> aus MySQL DB - Fach, Lehrer und Raum auslesen P2 Platzmangel?
+- AG -> Was'n los? P2 Platzmangel
+- News -> RSS von Nachrichtensendern P3 Relasierung?
 Überlegung: Berechnung auf U-Blog -> nur Anzeige auf RPi

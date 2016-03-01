@@ -5,6 +5,14 @@
           .blocksatz {text-align: justify;}
           td {text-align: ","}
   </style> 
+  <!-- TODO: MySQL Server Verbindung -->
+  <?php
+$db = mysqli_connect("localhost", "root", "rico", "usb");
+if(!$db)
+{
+  exit("Verbindungsfehler: ".mysqli_connect_error());
+}
+?>
 <!-- Fixierte Navbar -->
 <nav class="navbar navbar-default navbar-fixed-top">
   <div class="container">
