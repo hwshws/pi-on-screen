@@ -1,0 +1,8 @@
+Sonntag
+essen1     <br /> f
+essen2 <br /> f
+Schnitzel mit Pommes und Nudeln <br /> Gefüllte Zuckini mit Tomatensauce und Wellenbandnudeln <br /> Orangenschnitze
+Seelachsfillet im Backteig mit Salzkartoffeln und Remulade <br /> Blumenkohl im Backteig mit Salzkartoffeln <br /> Erdbeermilch
+essen5 <br /> f
+essen6 <br /> f
+essen7 <br /> f

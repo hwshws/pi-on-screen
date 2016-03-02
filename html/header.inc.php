@@ -4,14 +4,15 @@
           .zentriert {text-align: center;}
           .blocksatz {text-align: justify;}
           td {text-align: ","}
+          h2 { font-size: 43px; }
+		  p  { font-size: 1.2em; }
+          a  { font-size: 0.7cm; }
+          p  { background-image: url(logo.jpg); } <!-- Hintergrund V1 -->	
   </style> 
-  <!-- TODO: MySQL Server Verbindung -->
   <?php
-$db = mysqli_connect("localhost", "root", "rico", "usb");
-if(!$db)
-{
-  exit("Verbindungsfehler: ".mysqli_connect_error());
-}
+mysql_connect("localhost", "root", "rico") or die(mysql_error()); // Bei Bedarf ändern
+mysql_select_db(usb);
+
 ?>
 <!-- Fixierte Navbar -->
 <nav class="navbar navbar-default navbar-fixed-top">
@@ -23,20 +24,10 @@ if(!$db)
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button></p>
-      <a class="navbar-brand" href="./index.php"><div style="display:block; text-align:left;">USB - Das Urspringer Schwarze Brett </div> <!-- <div style="display:block; text-align:right;">TODO: Uhrzeit </div> -->
+      <a class="navbar-brand" href="./index.php"><div style="display:block; text-align:left;">USB - Das Urspringer Schwarze Brett  </div> <!-- <div style="display:block; text-align:right;">TODO: Uhrzeit </div> -->
  
 </a>
     </div>
-    <!-- <div id="navbar" class="collapse navbar-collapse">
-      <ul class="nav navbar-nav">
-        <li class="active"><a href="./index.php">Home   <span class="glyphicon glyphicon-home"></span> </a></li>
-        <li class="disabled"><a href="#">pyload</a></li>
-        <li class="disabled">
-          <a href="./anmeldung.php">
-            <span class="glyphicon glyphicon-user"></span> Anmeldung</a>
-        </li>
-      </ul>
-    </div> -->
     <!--/.nav-collapse -->
   </div>
 </nav>

@@ -1,3 +1,10 @@
+//$abfrage = "SELECT * FROM mensa";
+$ergebnis = mysqli_query($db, $abfrage);
+//$result = mysql_query("SELECT * FROM mensa");
+
+//$ergebnis = mysqli_query($db, "SELECT url, urlname FROM links");
+//echo($ergebnis);
+
 Datenbankstruktur Project "USB"
 USB
 	
