@@ -25,16 +25,16 @@
     <?php include 'header.inc.php'; ?> <br><br><br>
 
       <!-- Seiteninhalt -->
- <?php echo date("w"); //"<br />" //Ausgabe TAG in 0-7  
+ <?php echo date("w"); //"<br />" //Ausgabe TAG in 0-7
 
 
-$pdo = new PDO('mysql:host=localhost;dbname=usb', 'root', 'rico');
+// $pdo = new PDO('mysql:host=localhost;dbname=usb', 'root', 'rico');
 
-$sql = "SELECT * FROM mensa";
-foreach ($pdo->query($sql) as $row) {
-   echo $row['M1']."  ".$row['M2']."<br />";
-   echo $row['NT']."<br /><br />";
-}
+//$sql = "SELECT * FROM mensa";
+//foreach ($pdo->query($sql) as $row) {
+  // echo $row['M1']."  ".$row['M2']."<br />";
+//   echo $row['NT']."<br /><br />";
+//}
 
 
 $array = file("mensa.txt");
@@ -43,7 +43,8 @@ echo $array[date("w")];
 
 
 ?>
-       <!-- Seite fertig -->   
+<script src="//cdn.ckeditor.com/4.5.7/standard/ckeditor.js"></script>
+       <!-- Seite fertig -->
       <?php include 'footer.inc.php'; ?>
   </body>
 

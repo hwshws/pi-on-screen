@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="de">
-
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,48 +7,31 @@
     <!-- Die 3 Meta-Tags oben *müssen* zuerst im head stehen; jeglicher sonstiger head-Inhalt muss *nach* diesen Tags kommen -->
     <meta name="description" content="Das Urspringer Schwarze Brett - nur zum internen Gebrauch">
     <meta name="author" content="HWS">
-
-
+    <meta http-equiv="refresh" content="600; URL=http://127.0.0.1" />   <!-- TODO: Ändern bei Onlinestellung -->
     <title>USB - Urspringer Schwarzes Brett</title>
-
     <!-- Bootstrap-CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
-
     <!-- Besondere Stile für diese Vorlage -->
     <link href="css/sticky-footer.css" rel="stylesheet">
-
-
   </head>
-
   <body>
     <?php include 'header.inc.php'; ?> <br><br><br>
 
       <!-- Seiteninhalt -->
 <!-- <?php echo date("w"); //Ausgabe TAG in 0-7 ?> -->
-<div class="container-fluid">    
+<div class="container-fluid">
     <div class="row">
   <div class="col-md-8"><h2>Vertretungen, Stand XX:XX Uhr</h2><br> <?php //TODO: Mach mal ?>
-  5. Klasse - D - PAV 1 - Lä<br>
+  5. Klasse - D - PAV 1 - Lä <br>
   6. Klasse - E - PAV 1 - ELi <br>
-  
- <!-- <h2>Stundenplan für TODO: Wochentag; Stunde </h2><br>
-  5. Klasse - D - PAV 1 <br>
-  6. Klasse - E - PAV 1 <br>
-  7. Klasse - M - PAV 1 <br>
-  8. Klasse - Ph - PAV 1 <br>
-  9. Klasse - Geo - PAV 1 <br>
-  10a. Klasse - L - PAV 1 <br>
-  10b. Klasse - L - PAV 1 <br>
-  11. Klasse - D - PAV 1 <br>
-  11. Klasse - GMK - PAV 1 <br>
-  12. Klasse - Nix - PAV 1 <br>
-  12. Klasse - Kuchen - PAV 1 <br> -->
   </div>
-<div class="col-md-4"><h2>Heute in der Mensa...</h2> <?php  // Modul Mensa - Lecker lecker
+<div class="col-md-4"><h2>Heute in der Mensa...</h2>
+  <h3> <?php  // Modul Mensa - Lecker lecker
   $array = file("mensa.txt");
   $test = count(file("mensa.txt"));
+
   echo $array[date("w")];
-?>
+?> </h3>
 </div>
 </div>
 </div>
@@ -60,13 +42,8 @@ SOI = (typeof(SOI) != 'undefined') ? SOI : {};(SOI.ac21fs = SOI.ac21fs || []).pu
 (new SOI.DateTimeService("191837822596", "DE")).appendTime(" Uhr").setDay2digits(true).setMonthMode(1).start();});
 (function() {if (typeof(SOI.scrAc21) == "undefined") { SOI.scrAc21=document.createElement('script');SOI.scrAc21.type='text/javascript'; SOI.scrAc21.async=true;SOI.scrAc21.src=((document.location.protocol == 'https:') ? 'https://' : 'http://') + 'homepage-tools.schnelle-online.info/Homepage/atomicclock2_1.js';var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(SOI.scrAc21, s);}})();
 </script>
-</div> 
-<?php 
-
-?>
-
-       <!-- Seite fertig -->   
+</div>
+       <!-- Seite fertig -->
       <?php include 'footer.inc.php'; ?>
   </body>
-
 </html>
