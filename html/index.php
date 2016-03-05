@@ -7,7 +7,7 @@
     <!-- Die 3 Meta-Tags oben *müssen* zuerst im head stehen; jeglicher sonstiger head-Inhalt muss *nach* diesen Tags kommen -->
     <meta name="description" content="Das Urspringer Schwarze Brett - nur zum internen Gebrauch">
     <meta name="author" content="HWS">
-    <meta http-equiv="refresh" content="600; URL=http://127.0.0.1" />   <!-- TODO: Ändern bei Onlinestellung -->
+    <meta http-equiv="refresh" content="600; URL=http://127.0.0.1" />   <!-- FIXME: Ändern bei Onlinestellung -->
     <title>USB - Urspringer Schwarzes Brett</title>
     <!-- Bootstrap-CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -21,14 +21,14 @@
 <!-- <?php echo date("w"); //Ausgabe TAG in 0-7 ?> -->
 <div class="container-fluid">
     <div class="row">
-  <div class="col-md-8"><h2>Vertretungen, Stand XX:XX Uhr</h2><br> <?php //TODO: Mach mal ?>
+  <div class="col-md-8"><h2>Vertretungen, Stand XX:XX Uhr</h2><br> <?php //TODO: vplan.txt auslesen und verarbeiten ?>
   5. Klasse - D - PAV 1 - Lä <br>
   6. Klasse - E - PAV 1 - ELi <br>
   </div>
 <div class="col-md-4"><h2>Heute in der Mensa...</h2>
   <h3> <?php  // Modul Mensa - Lecker lecker
   $array = file("mensa.txt");
-  $test = count(file("mensa.txt"));
+  $test = count(file("mensa.txt")); //FIXME: Jede Woche aktuallisieren!
 
   echo $array[date("w")];
 ?> </h3>

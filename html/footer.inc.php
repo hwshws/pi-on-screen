@@ -14,7 +14,7 @@ var ticker_cfg = "tid=93697&tickercolor=#DDDDDD&transparent=1&speed=1&fontcolor=
 <script type="text/javascript" src="http://newsticker.shortnews.de/de/js/free/6/ticker.js?1"></script>
 </td></tr></table>
 <!-- END SHORTNEWS TICKER -->
-<p>Version 0.4.2 vom 04.03.16</p> <!-- </p> -->
+<p>Version 0.4.3 vom 04.03.16</p> <!-- </p> -->
   </div>
 </footer>
 <!-- Bootstrap-JavaScript

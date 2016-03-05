@@ -1,18 +1,21 @@
 TODO für V 1.0
-- Auswahl und Bestellung VGA - HDMI → HWS
-- Design Bootstrap? → KMF & HWS
+- Auswahl und Bestellung VGA - HDMI → HWS bestellt
+- Design Bootstrap? → KMF & HWS OK
 - Dokumentation → OJ
-- Programmierung → HWS
-  - MySQL
-    - Datenbank konzeptionieren & erstellen
-    - Daten sammeln 
-    - Datenbank befüllen
+- Programmierung → HWS & LH 80%
+  - Daten sammeln
+    - VPlan
+    - Mensa
+    - sonstiges
   - Webpages
-    - Verschiedene Module in php programmieren
-    - Testen 
+    - Verschiedene Module in php programmieren I.A.
+    - Testen
 - Aufbau (Nacht- und Nebelaktion) → HWS, JG, OJ
  - 2-tlg. Leiter (GH)
- - Stromversorgung (Netzteil für Pi)
+ - Stromversorgung für Pi und VGA-Adapter
+ - In Zukunft vielleicht LAN-Switch
  - WLAN-Abdeckung (sollte offensichtlich reichen)
 - Ergebnis
   - erstaunte / doof dreinblickende Gesichter
+- noch zu klären
+  - Wie bekommt man den Fernsehr an? → JG & OJ
