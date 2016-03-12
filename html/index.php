@@ -21,17 +21,19 @@
 <!-- <?php echo date("w"); //Ausgabe TAG in 0-7 ?> -->
 <div class="container-fluid">
     <div class="row">
-  <div class="col-md-8"><h2>Vertretungen, Stand XX:XX Uhr</h2><br> <?php //TODO: vplan.txt auslesen und verarbeiten ?>
-  5. Klasse - D - PAV 1 - Lä <br>
-  6. Klasse - E - PAV 1 - ELi <br>
+  <div class="col-md-8"><h2>Vertretungen</h2><br> <?php //TODO: vplan.txt auslesen und verarbeiten ?>
+    <h4>
+       <?php  // Modul V-Plan
+$vplan = file_get_contents('vplan.txt');
+echo $vplan
+    ?> </h4>
   </div>
 <div class="col-md-4"><h2>Heute in der Mensa...</h2>
   <h3> <?php  // Modul Mensa - Lecker lecker
   $array = file("mensa.txt");
-  $test = count(file("mensa.txt")); //FIXME: Jede Woche aktuallisieren!
-
+  $test = count(file("mensa.txt")); //FIXME: Jede Woche aktuallisieren
   echo $array[date("w")];
-?> </h3>
+  ?> </h3>
 </div>
 </div>
 </div>
@@ -42,6 +44,29 @@ SOI = (typeof(SOI) != 'undefined') ? SOI : {};(SOI.ac21fs = SOI.ac21fs || []).pu
 (new SOI.DateTimeService("191837822596", "DE")).appendTime(" Uhr").setDay2digits(true).setMonthMode(1).start();});
 (function() {if (typeof(SOI.scrAc21) == "undefined") { SOI.scrAc21=document.createElement('script');SOI.scrAc21.type='text/javascript'; SOI.scrAc21.async=true;SOI.scrAc21.src=((document.location.protocol == 'https:') ? 'https://' : 'http://') + 'homepage-tools.schnelle-online.info/Homepage/atomicclock2_1.js';var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(SOI.scrAc21, s);}})();
 </script>
+<!-- START SHORTNEWS TICKER -->
+<script type="text/javascript">
+var tickerwidth = 923;
+var tickercolor = "#DDDDDD";
+var fontcolor = "#000000";
+var splitcolor = "#043971";
+var fontsize = 18;
+var visitedlink = "#ffffff";
+var rollovercolor = "#990000";
+var font = "Arial";
+var speed = 1;
+var sparte = 4;
+var rubrik = 13;
+var rollover_underline = 0;
+var font_underline = 0;
+var transparent = 1;
+var fontbold = 0;
+var tickertyp = 1;
+var u_id = 93697;
+</script>
+<table cellspacing="0" cellpadding="0" width="950"><tr><td width="27" style="background-color:transparent"><a target="ShortNews" href="http://www.ShortNews.de" style="padding:0; margin:0;"><img alt="SN" title="Newsticker powered by www.ShortNews.de" src="http://newsticker.shortnews.de/sn_icon_20.gif" border="0" /></a></td><td><script type="text/javascript" src="http://newsticker.shortnews.de/de/js/free/3/a.js?1"></script></td></tr></table>
+<!-- END SHORTNEWS TICKER -->
+
 </div>
        <!-- Seite fertig -->
       <?php include 'footer.inc.php'; ?>

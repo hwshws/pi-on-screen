@@ -1,7 +1,8 @@
 <footer class="footer">
   <div class="container">
     <!-- <p class="text-muted"> -->
-			<!-- START SHORTNEWS TICKER -->
+
+    	<!-- START SHORTNEWS TICKER -->
 <script type="text/javascript">
 var w = 999;
 var h = 36;
@@ -13,12 +14,12 @@ var ticker_cfg = "tid=93697&tickercolor=#DDDDDD&transparent=1&speed=1&fontcolor=
 <table cellspacing="0" cellpadding="0" width="850"><tr><td>
 <script type="text/javascript" src="http://newsticker.shortnews.de/de/js/free/6/ticker.js?1"></script>
 </td></tr></table>
-<!-- END SHORTNEWS TICKER -->
-<p>Version 0.4.3 vom 04.03.16</p> <!-- </p> -->
+ <!-- END SHORTNEWS TICKER -->
+<p>Version 0.5 vom 12.03.16</p> <!-- </p> -->
   </div>
 </footer>
 <!-- Bootstrap-JavaScript
 ================================================== -->
 <!-- Am Ende des Dokuments platziert, damit Seiten schneller laden -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="js/jquery.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
