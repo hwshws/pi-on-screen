@@ -10,8 +10,8 @@ TODO für V 1.0
   - Webpages
     - Verschiedene Module in php programmieren I.A. Soweit fertig
     - Testen  I.A.
-- Aufbau (Nacht- und Nebelaktion) → HWS, JG, OJ tba am WE
- - 2-tlg. Leiter (GH)
+- Aufbau (Nacht- und Nebelaktion) → HWS, JG, OJ tba am Lehrlings WE
+ - 2-tlg. Leiter (GH) OK
  - Stromversorgung für Pi und VGA-Adapter OK
  - In Zukunft vielleicht LAN-Switch
  - WLAN-Abdeckung (sollte offensichtlich reichen) Stick da
