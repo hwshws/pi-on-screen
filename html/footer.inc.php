@@ -1,7 +1,7 @@
 <footer class="footer">
   <div class="container">
     <!-- <p class="text-muted"> -->
-<center> <p>Version 0.5.2 vom 30.03.16 - proudly present by OJJGHSLH </p> </center> <!-- </p> -->
+<center> <p>Version 0.6 vom 30.03.16 - proudly present by OJJGHSLH </p> </center> <!-- </p> -->
   </div>
 </footer>
 <!-- Bootstrap-JavaScript
