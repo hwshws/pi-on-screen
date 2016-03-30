@@ -7,14 +7,10 @@
           h2 { font-size: 43px; }
 		  p  { font-size: 1.2em; }
           a  { font-size: 0.7cm; }
-          p  { background-image: url(logo.jpg); } <!-- Hintergrund V1 -->
-  </style>
-  <?php
-mysql_connect("localhost", "root", "rico") or die(mysql_error()); // Bei Bedarf ändern
-mysql_select_db(usb);
 
-?>
-<!-- Fixierte Navbar -->
+  </style>
+
+<!-- Fixierte Navbar
 <nav class="navbar navbar-default navbar-fixed-top">
   <div class="container">
     <div class="navbar-header">
@@ -24,10 +20,10 @@ mysql_select_db(usb);
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button></p>
-      <a class="navbar-brand" href="./index.php"><div style="display:block; text-align:left;">USB - Das Urspringer Schwarze Brett</div> 
+      <a class="navbar-brand" href="./index.php"><div style="display:block; text-align:left;">USB - Das Urspringer Schwarze Brett</div>
 
 </a>
-    </div>
+    </div> -->
     <!--/.nav-collapse -->
   </div>
 </nav>

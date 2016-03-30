@@ -24,11 +24,11 @@ Bash Scripte
 
 Webserver: modularer Aufbau (Prioritäten in Versionszyklen)
 - Core -> sammelt alles zusammen, und zeigt dass dann an P1
-- VPlan -> aus .docx eine .txt basteln P1
-- Speiseplan -> Leckereien aus der Küche P1 MySQL steht
+- VPlan -> aus .docx eine .txt basteln P1 OK
+- Speiseplan -> Leckereien aus der Küche P1 OK
 - Zeit -> selbsterklärend (Datum & Uhrzeit) P1 OK
-- Humor ->  Witz des Tages; Lebensweisheiten von RWe P1 MySQL steht
+- Humor ->  Witz des Tages; Lebensweisheiten von RWe P2 ?
 - Stundenplan -> aus MySQL DB - Fach, Lehrer und Raum auslesen P2 Platzmangel?
 - AG -> Was'n los? P2 Platzmangel
-- News -> RSS von Nachrichtensendern P3 Relasierung?
+- News -> RSS von Nachrichtensendern OK
 Überlegung: Berechnung auf U-Blog -> nur Anzeige auf RPi
