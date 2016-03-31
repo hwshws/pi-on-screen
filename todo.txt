@@ -19,4 +19,4 @@ TODO für V 1.0
   - erstaunte / doof dreinblickende Gesichter
 - noch zu klären
   - Wie bekommt man den Fernsehr an? → JG & OJ OK
-  - IR LED ansteuern
+  - IR LED ansteuern JG 0%

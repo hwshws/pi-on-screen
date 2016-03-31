@@ -7,7 +7,7 @@
     <!-- Die 3 Meta-Tags oben *müssen* zuerst im head stehen; jeglicher sonstiger head-Inhalt muss *nach* diesen Tags kommen -->
     <meta name="description" content="Das Urspringer Schwarze Brett - nur zum internen Gebrauch">
     <meta name="author" content="HWS">
-    <meta http-equiv="refresh" content="600; URL=http://127.0.0.1" />   <!-- FIXME: Ändern bei Onlinestellung -->
+    <meta http-equiv="refresh" content="1800; URL=http://127.0.0.1" />   <!-- FIXME: Ändern bei Onlinestellung -->
     <title>USB - Urspringer Schwarzes Brett</title>
     <!-- Bootstrap-CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -55,77 +55,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d8000e', end
 
 -->
 </style>
-
-
-
-
-<script type="text/javascript" language="JavaScript">
-<!-- Begin
-
-// Array Wochentag
-Wochentag = new Array("Sonntag","Montag","Dienstag","Mittwoch","Donnerstag","Freitag","Samstag");
-
-
-// Funktionen für Anzeigen Tag Datum + dynamische Uhrzeit
-
-function DisplayTime()
-{
- var SystemDatum = new Date();
- var CounterTag = SystemDatum.getDate();
- var CounterMonat = SystemDatum.getMonth() + 1;
- var CounterJahr = SystemDatum.getFullYear();
- var CounterStd = SystemDatum.getHours();
- var CounterMin = SystemDatum.getMinutes();
- var CounterSek = SystemDatum.getSeconds();
- var TagDerWoche = SystemDatum.getDay();
-
- //  für zweistellige Anzeige
- var CounterTag2  = ((CounterTag < 10) ? "0" : "");
- var CounterMonat2  = ((CounterMonat < 10) ? ".0" : ".");
- var CounterStd2  = ((CounterStd < 10) ? "0" : "");
- var CounterMin2  = ((CounterMin < 10) ? ":0" : ":");
-var CounterSek2  = ((CounterSek < 10) ? "" : "");
-
-
- // Die 3 Fragmente für die Anzeige Wochentag Datum Zeit
-
- // aktuelles Datum
- var DatumJetzt = CounterTag2 + CounterTag + CounterMonat2 + CounterMonat  + "." + CounterJahr + "<br>";
-
- // aktuelle Zeit
- var ZeitJetzt = CounterStd2 + CounterStd + CounterMin2 + CounterMin + CounterSek2 + " Uhr";
-
-// Option hier eintragen 1,2,3 oder 4
-DarstellungOption = 4
-
-switch (DarstellungOption) {
-  case 1:
-    // Anzeige der Zeit
-    var DispString = ZeitJetzt;
-    break;
-  case 2:
-    // Anzeige Datum + Zeit
-    var DispString = DatumJetzt + " &nbsp;" + ZeitJetzt;
-    break;
-  case 3:
-    // Anzeige Wochentag + Zeit
-    var DispString = Wochentag[TagDerWoche] + " &nbsp;" + ZeitJetzt;
-    break;
-  case 4:
-    // Anzeige Wochentag + Datum + Zeit
-    var DispString = Wochentag[TagDerWoche] + ", " + DatumJetzt + "<br>" + ZeitJetzt;
-    break;
-    }
-
-document.getElementById("ZeitAnzeige").innerHTML = DispString;
-
-setTimeout("DisplayTime()", 1000);
-}
-
-window.setTimeout('DisplayTime()',1000);
-
-// -->
-</script>
+<script language="javascript" type="text/javascript" src="uhr.js"></script>
   </head>
   <body style="background-color:#efefef;">
     <?php include 'header.inc.php'; ?>
@@ -160,7 +90,7 @@ echo $vplan
     </div>
   <div class="col-md-5"><p class="bg-success">
   <h2><i><p class="bg-success">Der Neuste Beitrag des Urspringblogs</p></i>
-  <h2>
+  <h3>
 
   <?php
   // Feed einlesen
@@ -199,7 +129,7 @@ echo $vplan
   }
   ?>
 
-</h2>
+</h3>
 
     </div>
 </div>
