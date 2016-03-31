@@ -9,6 +9,7 @@
         <link rel="stylesheet" href="css/bootstrap.min.css">
         <!--<link rel="stylesheet" href="css/bootstrap-theme.min.css">-->
         <link rel="stylesheet" href="css/style.css">
+        <script language="javascript" type="text/javascript" src="uhr.js"></script>
     </head>
     <body>
 
@@ -23,7 +24,7 @@
                     <!-- VERTRETUNGSPLAN -->
                     <div class="panel panel-primary">
                         <div class="panel-heading">
-                            Vertretungsplan 05.03.2015
+                            Vertretungsplan / Bekanntmachungen
                         </div>
                         <div class="panel-body">
 
@@ -42,15 +43,87 @@
                             Newsticker
                         </div>
                         <div class="panel-body" id="newsticker">
-                            <span class="label label-warning">TODO</span>
-                            HWS macht das
+                          <span style="font-size:1.03em;">
+
+                              <?php
+                              // Feed einlesen - Urspringblog
+                              if( !$xml = simplexml_load_file('https://www.urspringblog.de/feed/') ) {
+                                  die('Fehler beim Einlesen der XML Datei!');
+                              }
+
+                              // Ausgabe Array
+                              $out = array();
+
+                              // auszulesende Datensaetze
+                              $i = 2;
+
+                              // Items vorhanden?
+                              if( !isset($xml->channel[0]->item) ) {
+                                  die('Keine Items vorhanden!');
+                              }
+
+                              // Items holen
+                              foreach($xml->channel[0]->item as $item) {
+                                  if( $i-- == 0 ) {
+                                      break;
+                                  }
+
+                                  $out[] = array(
+                                      'title'        => (string) $item->title,
+                                      'description'  => (string) $item->description,
+                                      'link'         => (string) $item->guid,
+                                      'date'         => date('d.m.Y H:i', strtotime((string) $item->pubDate))
+                                  );
+                              }
+
+                              // Eintraege ausgeben
+                              foreach ($out as $value) {
+                                  echo $value['title']."<i> - Urspringblog</i><br>";
+                              }
+
+                              // TAGESSCHAU -Feed einlesen
+                              if( !$xml = simplexml_load_file('http://www.tagesschau.de/xml/rss2') ) {
+                                  die('Fehler beim Einlesen der XML Datei!');
+                              }
+
+                              // Ausgabe Array
+                              $out = array();
+
+                              // auszulesende Datensaetze
+                              $i = 3;
+
+                              // Items vorhanden?
+                              if( !isset($xml->channel[0]->item) ) {
+                                  die('Keine Items vorhanden!');
+                              }
+
+                              // Items holen
+                              foreach($xml->channel[0]->item as $item) {
+                                  if( $i-- == 0 ) {
+                                      break;
+                                  }
+
+                                  $out[] = array(
+                                      'title'        => (string) $item->title,
+                                      'description'  => (string) $item->description,
+                                      'link'         => (string) $item->guid,
+                                      'date'         => date('d.m.Y H:i', strtotime((string) $item->pubDate))
+                                  );
+                              }
+
+                              // Eintraege ausgeben
+                              foreach ($out as $value) {
+                                  echo $value['title']."<i> - tagesschau.de</i><br>";
+                              }
+
+                              ?> </span>
                         </div>
                     </div><!-- /NEWSTICKER -->
 
                     <!-- ZITAT -->
                     <div class="panel panel-success">
                         <div class="panel-heading">
-                            Zitat des Tages
+                            Zitat des Tages <span class="label label-warning">TODO</span>
                         </div>
                         <div class="panel-body" id="zitat">
                             Hund und Sau!
@@ -63,7 +136,7 @@
                     <!-- UHRZEIT -->
                     <div class="panel panel-default">
                         <div class="panel-body" id="uhrzeit" style="text-align:right;">
-                            <span style="font-size:1.5em;">05.03.2015 12:32:55</span>
+                            <span style="font-size:2.0em;"><div id="ZeitBox01"><div id="ZeitAnzeige"></div></div></span>
                         </div>
                     </div><!-- /UHRZEIT -->
 
@@ -77,7 +150,7 @@
                     <!-- SPEISEPLAN -->
                     <div class="panel panel-danger">
                         <div class="panel-heading">
-                            Speiseplan vom 02. - 06.03.2015
+                            Speiseplan
                         </div>
                         <div class="panel-body">
 
@@ -93,18 +166,21 @@
                     <!-- TAGESLOSUNG -->
                     <div class="panel panel-info">
                         <div class="panel-heading">
-                            Tageslosung
+                            Tageslosung <span class="label label-warning">TODO</span>
                         </div>
                         <div class="panel-body" id="losung">
-                            <h3><p>HERR, lass mir deine Barmherzigkeit widerfahren, dass ich lebe.<br>
+                            <h4><p>HERR, lass mir deine Barmherzigkeit widerfahren, dass ich lebe.<br>
                             Psalm 119,77</p>
 
 
                             <p>Der König sprach zu seinen Knechten: Geht hinaus auf die Straßen und ladet zur Hochzeit ein, wen ihr findet. Und die Knechte gingen auf die Straßen hinaus und brachten zusammen, wen sie fanden, Böse und Gute; und die Tische wurden alle voll.<br>
-                            Matthäus 22,9-10</p></h3>
+                            Matthäus 22,9-10</p></h4>
                         </div>
                     </div><!-- /TAGESLOSUNG -->
-
+                    <p align="right"><img src="logow.png" alt="Logo der Urspringschule" class="pull-right"></p> <!-- Nettes Urspringlogo -->
+                <p>
+                  Version 0.7.1 vom 31.03.16 <br> proudly present by OJJGHSLH
+                </p>
                 </div><!-- /RECHTE SPALTE -->
 
             </div><!-- /.row -->
