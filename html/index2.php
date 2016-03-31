@@ -135,7 +135,7 @@
 //   echo $row['NT']."<br /><br />";
 //}
 
-<div id="ZeitBox01"><div id="ZeitAnzeige"></div></div>
+
 
 
 $array = file("mensa.txt");
@@ -143,8 +143,43 @@ $test = count(file("mensa.txt"));
 echo $array[date("w")];
 
 
+
+// Feed einlesen
+if( !$xml = simplexml_load_file('https://www.urspringblog.de/feed/') ) {
+    die('Fehler beim Einlesen der XML Datei!');
+}
+
+// Ausgabe Array
+$out = array();
+
+// auszulesende Datensaetze
+$i = 1;
+
+// Items vorhanden?
+if( !isset($xml->channel[0]->item) ) {
+    die('Keine Items vorhanden!');
+}
+
+// Items holen
+foreach($xml->channel[0]->item as $item) {
+    if( $i-- == 0 ) {
+        break;
+    }
+
+    $out[] = array(
+        'title'        => (string) $item->title,
+        'description'  => (string) $item->description,
+        'link'         => (string) $item->guid,
+        'date'         => date('d.m.Y H:i', strtotime((string) $item->pubDate))
+    );
+}
+
+// Eintraege ausgeben
+foreach ($out as $value) {
+    echo $value['title'] ;
+}
 ?>
-<script src="//cdn.ckeditor.com/4.5.7/standard/ckeditor.js"></script>
+<p class="bg-primary">...</p>
        <!-- Seite fertig -->
       <?php include 'footer.inc.php'; ?>
   </body>

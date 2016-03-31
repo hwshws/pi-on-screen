@@ -27,13 +27,13 @@ height: 150px;
 margin: 0px;
 padding: 0px;
 border: none;
-background-color: #FFFFFF;
+background-color: #81F781 ;
 }
 
 #ZeitAnzeige {
 position: absolute;
-top: 0px;
-left: 0px;
+top: 30px;
+left: -44px;
 background: transparent;
 width: 500px;
 line-height: 26px;
@@ -43,6 +43,15 @@ font-family: Verdana,Arial,Helvetica,sans-serif;
 font-size: 32px;
 font-weight: normal;
 }
+body {
+  font-family: "Lato", sans-serif;
+}
+
+background: rgb(216,0,14);
+background: -moz-linear-gradient(-45deg,  rgba(216,0,14,1) 0%, rgba(244,2,18,1) 55%, rgba(252,22,38,1) 100%);
+background: -webkit-linear-gradient(-45deg,  rgba(216,0,14,1) 0%,rgba(244,2,18,1) 55%,rgba(252,22,38,1) 100%);
+background: linear-gradient(135deg,  rgba(216,0,14,1) 0%,rgba(244,2,18,1) 55%,rgba(252,22,38,1) 100%);
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d8000e', endColorstr='#fc1626',GradientType=1 );
 
 -->
 </style>
@@ -75,7 +84,7 @@ function DisplayTime()
  var CounterMonat2  = ((CounterMonat < 10) ? ".0" : ".");
  var CounterStd2  = ((CounterStd < 10) ? "0" : "");
  var CounterMin2  = ((CounterMin < 10) ? ":0" : ":");
- var CounterSek2  = ((CounterSek < 10) ? ":0" : ":");
+var CounterSek2  = ((CounterSek < 10) ? "" : "");
 
 
  // Die 3 Fragmente für die Anzeige Wochentag Datum Zeit
@@ -84,7 +93,7 @@ function DisplayTime()
  var DatumJetzt = CounterTag2 + CounterTag + CounterMonat2 + CounterMonat  + "." + CounterJahr + "<br>";
 
  // aktuelle Zeit
- var ZeitJetzt = CounterStd2 + CounterStd + CounterMin2 + CounterMin + CounterSek2 + CounterSek + " Uhr";
+ var ZeitJetzt = CounterStd2 + CounterStd + CounterMin2 + CounterMin + CounterSek2 + " Uhr";
 
 // Option hier eintragen 1,2,3 oder 4
 DarstellungOption = 4
@@ -118,21 +127,24 @@ window.setTimeout('DisplayTime()',1000);
 // -->
 </script>
   </head>
-  <body>
+  <body style="background-color:#efefef;">
     <?php include 'header.inc.php'; ?>
 
       <!-- Seiteninhalt -->
+      <center><p class="bg-primary">USB - das Urspringer Schwarze Brett</p></center>
 <!-- <?php echo date("w"); //Ausgabe TAG in 0-7 ?> -->
 <div class="container-fluid">
     <div class="row">
-  <div class="col-md-8"><h2>Vertretungen</h2> 
+  <div class="col-md-7" >
+    <p class="bg-success">
+    <h2><i><p class="bg-primary">Vertretungen </i></h2>
     <h3>
        <?php  // Modul V-Plan
 $vplan = file_get_contents('vplan.txt');
 echo $vplan
-    ?> </h3>
+    ?> </h3> </p> </p>
   </div>
-<div class="col-md-4"><h2>Heute in der Mensa...</h2>
+<div class="col-md-5"><h2><i><p class="bg-warning">Heute in der Mensa...</p></i></h2>
   <h3> <?php  // Modul Mensa - Lecker lecker
   $array = file("mensa.txt");
   $test = count(file("mensa.txt")); //FIXME: Jede Woche aktuallisieren
@@ -141,10 +153,60 @@ echo $vplan
 </div>
 </div>
 </div>
-<p align="right"><img src="logo.jpg" alt="Logo der Urspringschule" class="pull-right"></p> <!-- Nettes Urspringlogo -->
+<div class="row">
+  <div class="col-md-7"><p class="bg-warning">
+  <h2><i><p class="bg-warning">Humorecke</i></h2>
+  <h3> REVIEW: Da sollten Witze hin! </h3> <!-- FIXME: basteln in php -->
+    </div>
+  <div class="col-md-5"><p class="bg-success">
+  <h2><i><p class="bg-success">Der Neuste Beitrag des Urspringblogs</p></i>
+  <h2>
+
+  <?php
+  // Feed einlesen
+  if( !$xml = simplexml_load_file('https://www.urspringblog.de/feed/') ) {
+      die('Fehler beim Einlesen der XML Datei!');
+  }
+
+  // Ausgabe Array
+  $out = array();
+
+  // auszulesende Datensaetze
+  $i = 2;
+
+  // Items vorhanden?
+  if( !isset($xml->channel[0]->item) ) {
+      die('Keine Items vorhanden!');
+  }
+
+  // Items holen
+  foreach($xml->channel[0]->item as $item) {
+      if( $i-- == 0 ) {
+          break;
+      }
+
+      $out[] = array(
+          'title'        => (string) $item->title,
+          'description'  => (string) $item->description,
+          'link'         => (string) $item->guid,
+          'date'         => date('d.m.Y H:i', strtotime((string) $item->pubDate))
+      );
+  }
+
+  // Eintraege ausgeben
+  foreach ($out as $value) {
+      echo $value['title']."\r\n";
+  }
+  ?>
+
+</h2>
+
+    </div>
+</div>
+<p align="right"><img src="logow.png" alt="Logo der Urspringschule" class="pull-right"></p> <!-- Nettes Urspringlogo -->
 <div style="display:block; text-align:center;"> <br>
-<center><div id="ZeitBox01"><div id="ZeitAnzeige"></div></div>  <!-- Uhrzeit aus dem Header -->
-<!-- START SHORTNEWS TICKER -->
+<center><div id="ZeitBox01"><br>  <div id="ZeitAnzeige"></div></div>  <!-- Uhrzeit aus dem Header -->
+<!-- START SHORTNEWS TICKER
 <script type="text/javascript">
 var tickerwidth = 923;
 var tickercolor = "#DDDDDD";
@@ -165,7 +227,7 @@ var tickertyp = 1;
 var u_id = 93697;
 </script>
 <table cellspacing="0" cellpadding="0" width="950"><tr><td width="27" style="background-color:#DDDDDD"><a target="ShortNews" href="http://www.ShortNews.de" style="padding:0; margin:0;"><img alt="SN" title="Newsticker powered by www.ShortNews.de" src="http://newsticker.shortnews.de/sn_icon_20.gif" border="0" /></a></td><td><script type="text/javascript" src="http://newsticker.shortnews.de/de/js/free/3/a.js?1"></script></td></tr></table>
-<!-- END SHORTNEWS TICKER -->
+END SHORTNEWS TICKER -->
 </center>
 
 
