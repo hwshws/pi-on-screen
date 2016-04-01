@@ -3,11 +3,14 @@
 <!--html manifest="this.appcache"-->
 <html>
     <head>
-        <title>U-Bildschirm Layout Entwurf</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="css/bootstrap.min.css">
         <!--<link rel="stylesheet" href="css/bootstrap-theme.min.css">-->
+        <meta name="description" content="Das Urspringer Schwarze Brett - nur zum internen Gebrauch">
+        <meta name="author" content="HWS">
+        <meta http-equiv="refresh" content="600; URL=http://127.0.0.1" />   <!-- FIXME: Ändern bei Onlinestellung -->
+        <title>USB - Urspringer Schwarzes Brett</title>
         <link rel="stylesheet" href="css/style.css">
         <script language="javascript" type="text/javascript" src="uhr.js"></script>
     </head>
