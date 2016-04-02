@@ -20,7 +20,7 @@ mysql	tbc
 ssh / sshd
 vnc
 Bash Scripte
-- automatischer Restart und Ausblendung d. Taskleiste 0%
+- automatischer Restart und Ausblendung d. Taskleiste 75%
 
 Webserver: modularer Aufbau (Prioritäten in Versionszyklen)
 - Core -> sammelt alles zusammen, und zeigt dass dann an P1
