@@ -9,15 +9,15 @@
         <!--<link rel="stylesheet" href="css/bootstrap-theme.min.css">-->
         <meta name="description" content="Das Urspringer Schwarze Brett - nur zum internen Gebrauch">
         <meta name="author" content="HWS">
-        <meta http-equiv="refresh" content="600; URL=http://127.0.0.1" />   <!-- FIXME: Ändern bei Onlinestellung -->
+        <meta http-equiv="refresh" content="1800; URL=http://127.0.0.1/index.php" />
         <title>USB - Urspringer Schwarzes Brett</title>
         <link rel="stylesheet" href="css/style.css">
         <script language="javascript" type="text/javascript" src="uhr.js"></script>
     </head>
     <body>
 
-        <div class="container" id="content" style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);">
-
+        <div class="container-fluid" id="content">
+<br>
 
             <div class="row">
 
@@ -27,7 +27,7 @@
                     <!-- VERTRETUNGSPLAN -->
                     <div class="panel panel-primary">
                         <div class="panel-heading">
-                            Vertretungsplan / Bekanntmachungen
+                      <h4><b>      Vertretungsplan / Bekanntmachungen </b></h4>
                         </div>
                         <div class="panel-body">
 
@@ -40,13 +40,59 @@
                         </div>
                     </div><!-- /VERTRETUNGSPLAN -->
 
-                    <!-- NEWSTICKER -->
+
+
+                    <!-- ZITAT -->
+                    <div class="panel panel-success">
+                        <div class="panel-heading">
+                         <h4><b>   Zitat des Tages  </b></h4>
+                        </div>
+                        <div class="panel-body" id="zitat">
+                     <h4><b> Begehe keine Dummheit zweimal, die Auswahl ist doch groß genug!
+                        </div>
+                        <div class="panel-footer">
+                            <i>&#126; Unbekannt</i> </b><h4>
+                        </div>
+                    </div><!-- /ZITAT -->
+			<!-- UHRZEIT -->
+                    <div class="panel panel-default">
+                        <div class="panel-body" id="uhrzeit" style="text-align:right;">
+                            <span style="font-size:2.0em;"><div id="ZeitBox01"><div id="ZeitAnzeige"></div></div></span>
+                        </div>
+                    </div><!-- /UHRZEIT -->
+
+
+
+
+                </div><!-- /LINKE SPALTE -->
+
+
+
+                <!-- RECHTE SPALTE -->
+                <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+
+                    <!-- SPEISEPLAN -->
+                    <div class="panel panel-danger">
+                        <div class="panel-heading">
+                         <h4><b>   Speiseplan </b></h4>
+                        </div>
+                        <div class="panel-body">
+
+                          <h3> <?php  // Modul Mensa - Lecker lecker
+                          $array = file("mensa.txt");
+                          $test = count(file("mensa.txt")); //FIXME: Jede Woche aktuallisieren
+                          echo $array[date("w")];
+                          ?> </h3>
+
+                        </div>
+                    </div><!-- /SPEISEPLAN -->
+<!-- NEWSTICKER -->
                     <div class="panel panel-info">
                         <div class="panel-heading">
-                            Newsticker
+                    <h4><b> Newsticker - Urspringblog & Tagesschau </b></h4>
                         </div>
                         <div class="panel-body" id="newsticker">
-                          <span style="font-size:1.03em;">
+                          <span style="font-size:1.03em;"><h3><i>
 
                               <?php
                               // Feed einlesen - Urspringblog
@@ -81,8 +127,9 @@
 
                               // Eintraege ausgeben
                               foreach ($out as $value) {
-                                  echo $value['title']."<i> - Urspringblog</i><br>";
+                                  echo $value['title']."<br></i>";
                               }
+
 
                               // TAGESSCHAU -Feed einlesen
                               if( !$xml = simplexml_load_file('http://www.tagesschau.de/xml/rss2') ) {
@@ -116,73 +163,16 @@
 
                               // Eintraege ausgeben
                               foreach ($out as $value) {
-                                  echo $value['title']."<i> - tagesschau.de</i><br>";
+                                  echo $value['title']."<br>";
                               }
 
-                              ?> </span>
+                              ?> </span></h3>
                         </div>
                     </div><!-- /NEWSTICKER -->
 
-                    <!-- ZITAT -->
-                    <div class="panel panel-success">
-                        <div class="panel-heading">
-                            Zitat des Tages <span class="label label-warning">TODO</span>
-                        </div>
-                        <div class="panel-body" id="zitat">
-                            Hund und Sau!
-                        </div>
-                        <div class="panel-footer">
-                            <i>&#126; Bernhard H&uuml;ttenrauch</i>
-                        </div>
-                    </div><!-- /ZITAT -->
-
-                    <!-- UHRZEIT -->
-                    <div class="panel panel-default">
-                        <div class="panel-body" id="uhrzeit" style="text-align:right;">
-                            <span style="font-size:2.0em;"><div id="ZeitBox01"><div id="ZeitAnzeige"></div></div></span>
-                        </div>
-                    </div><!-- /UHRZEIT -->
-
-                </div><!-- /LINKE SPALTE -->
-
-
-
-                <!-- RECHTE SPALTE -->
-                <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
-
-                    <!-- SPEISEPLAN -->
-                    <div class="panel panel-danger">
-                        <div class="panel-heading">
-                            Speiseplan
-                        </div>
-                        <div class="panel-body">
-
-                          <h3> <?php  // Modul Mensa - Lecker lecker
-                          $array = file("mensa.txt");
-                          $test = count(file("mensa.txt")); //FIXME: Jede Woche aktuallisieren
-                          echo $array[date("w")];
-                          ?> </h3>
-
-                        </div>
-                    </div><!-- /SPEISEPLAN -->
-
-                    <!-- TAGESLOSUNG -->
-                    <div class="panel panel-info">
-                        <div class="panel-heading">
-                            Tageslosung <span class="label label-warning">TODO</span>
-                        </div>
-                        <div class="panel-body" id="losung">
-                            <h4><p>HERR, lass mir deine Barmherzigkeit widerfahren, dass ich lebe.<br>
-                            Psalm 119,77</p>
-
-
-                            <p>Der König sprach zu seinen Knechten: Geht hinaus auf die Straßen und ladet zur Hochzeit ein, wen ihr findet. Und die Knechte gingen auf die Straßen hinaus und brachten zusammen, wen sie fanden, Böse und Gute; und die Tische wurden alle voll.<br>
-                            Matthäus 22,9-10</p></h4>
-                        </div>
-                    </div><!-- /TAGESLOSUNG -->
-                    <p align="right"><img src="logow.png" alt="Logo der Urspringschule" class="pull-right"></p> <!-- Nettes Urspringlogo -->
+                    <p align="right"><img src="logow.png" alt="Logo der Urspringschule" class="pull-right" width="68" height="51"></p> <!-- Nettes Urspringlogo -->
                 <p>
-                  Version 0.7.1 vom 31.03.16 <br> proudly present by OJJGHSLH
+                  Version 1.0.0 vom 02.04.16 <br> proudly presented by OJJGHSLH
                 </p>
                 </div><!-- /RECHTE SPALTE -->
 
