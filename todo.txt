@@ -2,21 +2,21 @@ TODO für V 1.0
 - Auswahl und Bestellung VGA - HDMI → HWS DA
 - Design Bootstrap? → KMF & HWS OK
 - Dokumentation → OJ
-- Programmierung → HWS & LH 80%
+- Programmierung → HWS & LH 100%
   - Daten sammeln
     - VPlan OK
     - Mensa OK
-    - sonstiges
+    - sonstiges OK
   - Webpages
     - Verschiedene Module in php programmieren I.A. Soweit fertig
     - Testen  I.A.
-- Aufbau (Nacht- und Nebelaktion) → HWS, JG, OJ tba am Lehrlings WE
+- Aufbau (Nacht- und Nebelaktion) → HWS, JG, OJ tba am Lehrlings WE OK
  - 2-tlg. Leiter (GH) OK
  - Stromversorgung für Pi und VGA-Adapter OK
  - In Zukunft vielleicht LAN-Switch
  - WLAN-Abdeckung (sollte offensichtlich reichen) Stick da
 - Ergebnis
-  - erstaunte / doof dreinblickende Gesichter
+  - erstaunte / doof dreinblickende Gesichter OK
 - noch zu klären
   - Wie bekommt man den Fernsehr an? → JG & OJ OK
   - IR LED ansteuern JG 0%
