@@ -29,18 +29,45 @@
                         <div class="panel-heading">
                       <h4><b>      Vertretungsplan / Bekanntmachungen </b></h4>
                         </div>
-                        <div class="panel-body">
+                        <div><h3>
+                             <table class="table table-striped">
+                                <tr>
+                                    <td><b>Klasse</b></td>
+                                    <td><b>Stunde</b></td>
+                                    <td><b>&Auml;nderung</b></td>
+                                </tr>
+                                <tr class="success">
+                                    <td>9</td>
+                                    <td>1./2.</td>
+                                    <td>Raum&auml;nderung: KA im EK-Raum</td>
+                                </tr>
+                                <tr class="warning">
+                                    <td>10b</td>
+                                    <td>1./2.</td>
+                                    <td>Raum&auml;nderung: Computerraum</td>
+                                </tr>
+                                <tr class="warning">
+                                    <td>9</td>
+                                    <td>3./4.</td>
+                                    <td>Raum&auml;nderung: Englischraum</td>
+                                </tr>
+                                <tr class="warning">
+                                    <td>7</td>
+                                    <td>4./5.</td>
+                                    <td>Kunstprojekt aus 1./2. Stunde weiter bearbeiten</td>
+                                </tr>
+                                <tr class="danger">
+                                    <td>6er</td>
+                                    <td>9. Std.</td>
+                                    <td>Englisch mit 8. Stunde als Doppelstunde</td>
+                                </tr>
+                            </table>
+                            Mädchensport am Freitagnachmittag fällt für die Internen aus sowie für diejenigen Externen, die eine kurze Genehmigung der Eltern mitbringen, dass sie das Wochenende bereits nach der 7. Stunde beginnen dürfen.
 
-                          <h3>
-                             <?php  // Modul V-Plan
-                      $vplan = file_get_contents('vplan.txt');
-                      echo $vplan
-                          ?> </h3>
+                          </h3>
 
                         </div>
                     </div><!-- /VERTRETUNGSPLAN -->
-
-
 
                     <!-- ZITAT -->
                     <div class="panel panel-success">
@@ -48,21 +75,17 @@
                          <h4><b>   Zitat des Tages  </b></h4>
                         </div>
                         <div class="panel-body" id="zitat">
-                     <h4><b> Begehe keine Dummheit zweimal, die Auswahl ist doch groß genug!
-                        </div>
+                     <h4><b><?php $zitat = file_get_contents('zitatdestages.txt'); echo $zitat;?></div>
                         <div class="panel-footer">
-                            <i>&#126; Unbekannt</i> </b><h4>
+                            <i>&#126; <?php $autor = file_get_contents('autordestages.txt'); echo "$autor";?></i> </b><h4>
                         </div>
                     </div><!-- /ZITAT -->
-			<!-- UHRZEIT -->
+			                 <!-- UHRZEIT -->
                     <div class="panel panel-default">
                         <div class="panel-body" id="uhrzeit" style="text-align:right;">
                             <span style="font-size:2.0em;"><div id="ZeitBox01"><div id="ZeitAnzeige"></div></div></span>
                         </div>
                     </div><!-- /UHRZEIT -->
-
-
-
 
                 </div><!-- /LINKE SPALTE -->
 
@@ -86,10 +109,10 @@
 
                         </div>
                     </div><!-- /SPEISEPLAN -->
-<!-- NEWSTICKER -->
+		                  <!-- NEWSTICKER -->
                     <div class="panel panel-info">
                         <div class="panel-heading">
-                    <h4><b> Newsticker - Urspringblog & Tagesschau </b></h4>
+                    <h4><b> Newsticker - <i>Urspringblog</i> & Tagesschau </b></h4>
                         </div>
                         <div class="panel-body" id="newsticker">
                           <span style="font-size:1.03em;"><h3><i>
@@ -97,7 +120,7 @@
                               <?php
                               // Feed einlesen - Urspringblog
                               if( !$xml = simplexml_load_file('https://www.urspringblog.de/feed/') ) {
-                                  die('Fehler beim Einlesen der XML Datei!');
+                                  die('Es passierte ein Fehler! Das tut uns leid');
                               }
 
                               // Ausgabe Array
@@ -127,9 +150,10 @@
 
                               // Eintraege ausgeben
                               foreach ($out as $value) {
-                                  echo $value['title']."<br></i>";
-                              }
-
+                                  echo $value['title']."<br>";
+                              } ?>
+				                        </i>
+				                          <?php
 
                               // TAGESSCHAU -Feed einlesen
                               if( !$xml = simplexml_load_file('http://www.tagesschau.de/xml/rss2') ) {
@@ -172,7 +196,7 @@
 
                     <p align="right"><img src="logow.png" alt="Logo der Urspringschule" class="pull-right" width="68" height="51"></p> <!-- Nettes Urspringlogo -->
                 <p>
-                  Version 1.0.0 vom 02.04.16 <br> proudly presented by OJJGHSLH
+                  Version 1.1.0 vom 09.04.16 <br> proudly presented by OJJGHSLH
                 </p>
                 </div><!-- /RECHTE SPALTE -->
 
