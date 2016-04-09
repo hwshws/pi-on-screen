@@ -20,15 +20,19 @@ mysql	tbc
 ssh / sshd
 vnc
 Bash Scripte
+<<<<<<< HEAD
 - automatischer Restart und Ausblendung d. Taskleiste 100%
+=======
+- automatischer Restart und Ausblendung d. Taskleiste 75%
+>>>>>>> master
 
 Webserver: modularer Aufbau (Prioritäten in Versionszyklen)
 - Core -> sammelt alles zusammen, und zeigt dass dann an P1
 - VPlan -> aus .docx eine .txt basteln P1 OK
 - Speiseplan -> Leckereien aus der Küche P1 OK
 - Zeit -> selbsterklärend (Datum & Uhrzeit) P1 OK
-- Humor ->  Witz des Tages; Lebensweisheiten von RWe P2 ?
+- Humor ->  Witz des Tages; Lebensweisheiten von RWe P2 I.A.
 - Stundenplan -> aus MySQL DB - Fach, Lehrer und Raum auslesen P2 Platzmangel?
 - AG -> Was'n los? P2 Platzmangel
 - News -> RSS von Nachrichtensendern OK
-Überlegung: Berechnung auf U-Blog -> nur Anzeige auf RPi
+Berechnung auf RPi
