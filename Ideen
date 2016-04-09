@@ -12,7 +12,7 @@ Pi -> dauerleihgabe HWS
 WLan Stick (aus Urspringer Fundus)
 VGA - HDMI (wie auch immer)
 
-Software: 
+Software:
 nginx - Webserver OK (UBlog)
 php
 mysql	tbc
@@ -20,7 +20,11 @@ mysql	tbc
 ssh / sshd
 vnc
 Bash Scripte
+<<<<<<< HEAD
+- automatischer Restart und Ausblendung d. Taskleiste 100%
+=======
 - automatischer Restart und Ausblendung d. Taskleiste 75%
+>>>>>>> master
 
 Webserver: modularer Aufbau (Prioritäten in Versionszyklen)
 - Core -> sammelt alles zusammen, und zeigt dass dann an P1
