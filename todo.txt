@@ -19,4 +19,18 @@ TODO für V 1.0
   - erstaunte / doof dreinblickende Gesichter OK
 - noch zu klären
   - Wie bekommt man den Fernsehr an? → JG & OJ OK
+<<<<<<< HEAD
+  - IR LED ansteuern
+
+sudo apt-get install xautomation
+sudo nano ~/.config/lxsession/LXDE-pi/autostart
+@lxpanel --profile LXDE-pi
+@pcmanfm --desktop --profile LXDE-pi
+@xscreensaver -no-splash
+@xset s off
+@xset -dpms
+@xset s noblank
+@/home/pi/kiosk.sh
+=======
   - IR LED ansteuern JG 0%
+>>>>>>> master

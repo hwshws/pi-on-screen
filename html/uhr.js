@@ -28,7 +28,11 @@ var CounterSek2  = ((CounterSek < 10) ? "" : "");
  // Die 3 Fragmente für die Anzeige Wochentag Datum Zeit
 
  // aktuelles Datum
+<<<<<<< HEAD
+ var DatumJetzt = CounterTag2 + CounterTag + CounterMonat2 + CounterMonat  + "." + CounterJahr + " - ";
+=======
  var DatumJetzt = CounterTag2 + CounterTag + CounterMonat2 + CounterMonat  + "." + CounterJahr + "<br>";
+>>>>>>> master
 
  // aktuelle Zeit
  var ZeitJetzt = CounterStd2 + CounterStd + CounterMin2 + CounterMin + CounterSek2 + " Uhr";
@@ -51,14 +55,26 @@ switch (DarstellungOption) {
     break;
   case 4:
     // Anzeige Wochentag + Datum + Zeit
+<<<<<<< HEAD
+    var DispString = Wochentag[TagDerWoche] + ", " + DatumJetzt + ZeitJetzt;
+=======
     var DispString = Wochentag[TagDerWoche] + ", " + DatumJetzt + "<br>" + ZeitJetzt;
+>>>>>>> master
     break;
     }
 
 document.getElementById("ZeitAnzeige").innerHTML = DispString;
 
+<<<<<<< HEAD
+
+=======
+>>>>>>> master
 setTimeout("DisplayTime()", 1000);
 }
 
 window.setTimeout('DisplayTime()',1000);
+<<<<<<< HEAD
+
+=======
+>>>>>>> master
 // -->
