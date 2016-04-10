@@ -2,29 +2,26 @@ Zeitgesteuerte Stundenplanraumanzeige
 Uhrzeit
 Speiseplan -> täglich neu -> 1x Woche in Datenbank einbetten (Änderungen vorbehalten)
 Vetretungsplan aus .docx (Bernhard treten)
-Newsfeed (N24 o.ä.)
+Newsfeed (tagesschau und Urspringblog)
 Freizeitgestaltung
 AG-Info tagesaktuell
 
 Gebraucht wird:
 Hardware:
-Pi -> dauerleihgabe HWS
-WLan Stick (aus Urspringer Fundus)
-VGA - HDMI (wie auch immer)
+Pi -> Dauerleihgabe HWS
+WLan Stick (Dauerleihgabe HWS)
+HDMI - Kabel (OJ)
 
 Software:
-nginx - Webserver OK (UBlog)
+nginx - Webserver OK (Pi)
 php
-mysql	tbc
+
 - phpmyadmin
 ssh / sshd
 vnc
 Bash Scripte
-<<<<<<< HEAD
 - automatischer Restart und Ausblendung d. Taskleiste 100%
-=======
-- automatischer Restart und Ausblendung d. Taskleiste 75%
->>>>>>> master
+
 
 Webserver: modularer Aufbau (Prioritäten in Versionszyklen)
 - Core -> sammelt alles zusammen, und zeigt dass dann an P1
@@ -32,6 +29,7 @@ Webserver: modularer Aufbau (Prioritäten in Versionszyklen)
 - Speiseplan -> Leckereien aus der Küche P1 OK
 - Zeit -> selbsterklärend (Datum & Uhrzeit) P1 OK
 - Humor ->  Witz des Tages; Lebensweisheiten von RWe P2 I.A.
+- zitat des Tages: Mitternachts aus Datei klauen.
 - Stundenplan -> aus MySQL DB - Fach, Lehrer und Raum auslesen P2 Platzmangel?
 - AG -> Was'n los? P2 Platzmangel
 - News -> RSS von Nachrichtensendern OK

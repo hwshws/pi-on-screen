@@ -25,6 +25,11 @@
                 <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
 
                     <!-- VERTRETUNGSPLAN -->
+                  <!--  <h3>
+                  //     <?php  // Modul V-Plan
+              //  $vplan = file_get_contents('vplan.txt');
+                //echo $vplan
+                    ?> </h3> -->
                     <div class="panel panel-primary">
                         <div class="panel-heading">
                       <h4><b>      Vertretungsplan / Bekanntmachungen </b></h4>
@@ -37,32 +42,71 @@
                                     <td><b>&Auml;nderung</b></td>
                                 </tr>
                                 <tr class="success">
-                                    <td>9</td>
-                                    <td>1./2.</td>
-                                    <td>Raum&auml;nderung: KA im EK-Raum</td>
-                                </tr>
-                                <tr class="warning">
-                                    <td>10b</td>
-                                    <td>1./2.</td>
-                                    <td>Raum&auml;nderung: Computerraum</td>
-                                </tr>
-                                <tr class="warning">
-                                    <td>9</td>
-                                    <td>3./4.</td>
-                                    <td>Raum&auml;nderung: Englischraum</td>
-                                </tr>
-                                <tr class="warning">
                                     <td>7</td>
-                                    <td>4./5.</td>
-                                    <td>Kunstprojekt aus 1./2. Stunde weiter bearbeiten</td>
+                                    <td>2.</td>
+                                    <td>Raum&auml;nderung: Musikraum</td>
+                                <tr class="success">
+                                        <td>7</td>
+                                        <td>5.</td>
+                                        <td>Vertretung: Stein - GTZ4</td>
+                                </tr>
+                                <tr class="success">
+                                    <td>7 (Frz)</td>
+                                    <td>5./7.</td>
+                                    <td>Raum&auml;nderung: Franz.Raum</td>
+                                  <tr class="success">
+                                        <td>7</td>
+                                        <td>5./7.</td>
+                                        <td>Raum&auml;nderung: EK-Raum</td>
+                                <tr class="success">
+                                    <td>7</td>
+                                    <td>7.</td>
+                                    <td>Vertretung: A.Wetzler - GTZ4</td>
+                                </tr>
+                                </tr>
+                                <tr class="warning">
+                                    <td>9</td>
+                                    <td>3. Std.</td>
+                                    <td>Raum&auml;nderung: Bioraum</td>
                                 </tr>
                                 <tr class="danger">
-                                    <td>6er</td>
-                                    <td>9. Std.</td>
-                                    <td>Englisch mit 8. Stunde als Doppelstunde</td>
+                                    <td>10a</td>
+                                    <td>1./2.</td>
+                                    <td>entfällt</td>
                                 </tr>
+                                <tr class="warning">
+                                    <td>9</td>
+                                    <td>4./5.</td>
+                                    <td>Raum&auml;nderung: Musikraum</td>
+                                </tr>
+                                <tr class="default">
+                                    <td>11 Ma (Hh)</td>
+                                    <td>1./2.</td>
+                                    <td>Raum&auml;nderung: Englischraum</td>
+                                </tr>
+                                <tr class="default">
+                                    <td>11 D (AWe)</td>
+                                    <td>1./2.</td>
+                                    <td>Raum&auml;nderung: PAV</td>
+                                </tr>
+                                <tr class="default">
+                                    <td>11 Ma (Wa)</td>
+                                    <td>3./4.</td>
+                                    <td>Raum&auml;nderung: Chemieraum</td>
+                                </tr>
+                                <tr class="default">
+                                    <td>11 LiT</td>
+                                    <td>10./11.</td>
+                                    <td>entfällt</td>
+                                </tr>
+                                <tr class="danger">
+                                    <td>DaF</td>
+                                    <td>8./9.</td>
+                                    <td>Raum&auml;nderung: GTZ1</td>
+                                </tr>
+
+
                             </table>
-                            Mädchensport am Freitagnachmittag fällt für die Internen aus sowie für diejenigen Externen, die eine kurze Genehmigung der Eltern mitbringen, dass sie das Wochenende bereits nach der 7. Stunde beginnen dürfen.
 
                           </h3>
 
@@ -120,7 +164,7 @@
                               <?php
                               // Feed einlesen - Urspringblog
                               if( !$xml = simplexml_load_file('https://www.urspringblog.de/feed/') ) {
-                                  die('Es passierte ein Fehler! Das tut uns leid');
+                                  die('Es passierte ein Fehler! Das tut uns leid.');
                               }
 
                               // Ausgabe Array
@@ -157,7 +201,7 @@
 
                               // TAGESSCHAU -Feed einlesen
                               if( !$xml = simplexml_load_file('http://www.tagesschau.de/xml/rss2') ) {
-                                  die('Fehler beim Einlesen der XML Datei!');
+                                  die('Es passierte ein Fehler! Das tut uns leid.');
                               }
 
                               // Ausgabe Array
@@ -196,7 +240,7 @@
 
                     <p align="right"><img src="logow.png" alt="Logo der Urspringschule" class="pull-right" width="68" height="51"></p> <!-- Nettes Urspringlogo -->
                 <p>
-                  Version 1.1.0 vom 09.04.16 <br> proudly presented by OJJGHSLH
+                  Version 1.1.1 vom 09.04.16 <br> proudly presented by OJJGHSLH
                 </p>
                 </div><!-- /RECHTE SPALTE -->
 

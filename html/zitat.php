@@ -1,33 +1,24 @@
   <?php
-
-  // Platzhalter für Grundgerüst
+// Wählt zufällig ein Zitat des Tages aus der Datei zitat.txt aus, und schreibt das ausgewählte Zitat in .txt Dateien.
   $array = file("zitat.txt");
-
   $test = count(file("zitat.txt")); //Zählt Zeilen in Datei (auch leere am Ende!)
   $zahl = $test - 2;  // Darum kommt da jetzt eine weg!
   $a = rand(0, $zahl); // rand von 0 - zahl
   if (($a % 2) == 1)
-  {  ; //echo "$a is odd."
+  {  ;
   $a = $a + 1;}
   if (($a % 2) == 0)
-  { ;} //echo "$a is even."
-  //echo "<div class="panel-body" id="zitat"><h4><b>";
-  //echo $array[$a]; // Auslesen der Zeile Nummer $a
+  { ;}
+  //echo $array[$a]; // Auslesen der Zeile Nummer $a //XXX: Bleibt für Debugging
   $zeile1 = $array[$a]; //Zitat
   $filename = "zitatdestages.txt";
   file_put_contents($filename, $zeile1); // XXX: Lese-/Schreibrechte überprüfen!
-  echo $zeile1;
-  echo "<br>"; // Platzhalter für Gerüst
+  //echo $zeile1; //XXX: Bleibt für Debugging
+  //echo "<br>"; //XXX: Bleibt für Debugging
   $a = $a + 1; // Erhöhen $a um 1
   $zeile2 = $array[$a]; //Autor
   $filename = "autordestages.txt";
   file_put_contents($filename, $zeile2); // XXX: Lese-/Schreibrechte überprüfen!
-  echo "<i>&#126; $zeile2</i>";
-  //echo "</div><div class="panel-footer"><i>&#126; $zeile2</i></b><h4></div>";
-  //echo $array[$a]; // Auslesen der Zeile Nummer $a (+1)
-  //"<br>";
-  //TODO: jede Variable in die richtige Datei schreiben. Dabei den bestehenden Inhalt löschen!
-  echo "<br>"; // Platzhalter für Gerüst
-  //echo "<b>Ende</b>"; // Rein informativ
-  // Platzhalter für Grundgerüst
+  //echo "<i>&#126; $zeile2</i>"; //XXX: Bleibt für Debugging
+  //echo "<br>"; // Platzhalter für Gerüst //XXX: Bleibt für Debugging
   ?>
