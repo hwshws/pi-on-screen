@@ -17,7 +17,7 @@
     <body>
 
         <div class="container-fluid" id="content">
-<br>
+              <br>
 
             <div class="row">
 
@@ -35,78 +35,7 @@
                       <h4><b>      Vertretungsplan / Bekanntmachungen </b></h4>
                         </div>
                         <div><h3>
-                             <table class="table table-striped">
-                                <tr>
-                                    <td><b>Klasse</b></td>
-                                    <td><b>Stunde</b></td>
-                                    <td><b>&Auml;nderung</b></td>
-                                </tr>
-                                <tr class="success">
-                                    <td>7</td>
-                                    <td>2.</td>
-                                    <td>Raum&auml;nderung: Musikraum</td>
-                                <tr class="success">
-                                        <td>7</td>
-                                        <td>5.</td>
-                                        <td>Vertretung: Stein - GTZ4</td>
-                                </tr>
-                                <tr class="success">
-                                    <td>7 (Frz)</td>
-                                    <td>5./7.</td>
-                                    <td>Raum&auml;nderung: Franz.Raum</td>
-                                  <tr class="success">
-                                        <td>7</td>
-                                        <td>5./7.</td>
-                                        <td>Raum&auml;nderung: EK-Raum</td>
-                                <tr class="success">
-                                    <td>7</td>
-                                    <td>7.</td>
-                                    <td>Vertretung: A.Wetzler - GTZ4</td>
-                                </tr>
-                                </tr>
-                                <tr class="warning">
-                                    <td>9</td>
-                                    <td>3. Std.</td>
-                                    <td>Raum&auml;nderung: Bioraum</td>
-                                </tr>
-                                <tr class="danger">
-                                    <td>10a</td>
-                                    <td>1./2.</td>
-                                    <td>entfällt</td>
-                                </tr>
-                                <tr class="warning">
-                                    <td>9</td>
-                                    <td>4./5.</td>
-                                    <td>Raum&auml;nderung: Musikraum</td>
-                                </tr>
-                                <tr class="default">
-                                    <td>11 Ma (Hh)</td>
-                                    <td>1./2.</td>
-                                    <td>Raum&auml;nderung: Englischraum</td>
-                                </tr>
-                                <tr class="default">
-                                    <td>11 D (AWe)</td>
-                                    <td>1./2.</td>
-                                    <td>Raum&auml;nderung: PAV</td>
-                                </tr>
-                                <tr class="default">
-                                    <td>11 Ma (Wa)</td>
-                                    <td>3./4.</td>
-                                    <td>Raum&auml;nderung: Chemieraum</td>
-                                </tr>
-                                <tr class="default">
-                                    <td>11 LiT</td>
-                                    <td>10./11.</td>
-                                    <td>entfällt</td>
-                                </tr>
-                                <tr class="danger">
-                                    <td>DaF</td>
-                                    <td>8./9.</td>
-                                    <td>Raum&auml;nderung: GTZ1</td>
-                                </tr>
-
-
-                            </table>
+                            <?php include('vplan.php'); ?>
 
                           </h3>
 
