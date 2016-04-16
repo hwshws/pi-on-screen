@@ -136,28 +136,6 @@ echo $vplan
 <p align="right"><img src="logow.png" alt="Logo der Urspringschule" class="pull-right"></p> <!-- Nettes Urspringlogo -->
 <div style="display:block; text-align:center;"> <br>
 <center><div id="ZeitBox01"><br>  <div id="ZeitAnzeige"></div></div>  <!-- Uhrzeit aus dem Header -->
-<!-- START SHORTNEWS TICKER
-<script type="text/javascript">
-var tickerwidth = 923;
-var tickercolor = "#DDDDDD";
-var fontcolor = "#000000";
-var splitcolor = "#043971";
-var fontsize = 20;
-var visitedlink = "#ffffff";
-var rollovercolor = "#990000";
-var font = "Arial";
-var speed = 1;
-var sparte = 4;
-var rubrik = 13;
-var rollover_underline = 1;
-var font_underline = 0;
-var transparent = 1;
-var fontbold = 0;
-var tickertyp = 1;
-var u_id = 93697;
-</script>
-<table cellspacing="0" cellpadding="0" width="950"><tr><td width="27" style="background-color:#DDDDDD"><a target="ShortNews" href="http://www.ShortNews.de" style="padding:0; margin:0;"><img alt="SN" title="Newsticker powered by www.ShortNews.de" src="http://newsticker.shortnews.de/sn_icon_20.gif" border="0" /></a></td><td><script type="text/javascript" src="http://newsticker.shortnews.de/de/js/free/3/a.js?1"></script></td></tr></table>
-END SHORTNEWS TICKER -->
 </center>
 
 
