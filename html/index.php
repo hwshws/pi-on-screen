@@ -76,9 +76,21 @@ echo $vplan
   </div>
 <div class="col-md-5"><h2><i><p class="bg-warning">Heute in der Mensa...</p></i></h2>
   <h3> <?php  // Modul Mensa - Lecker lecker
-  $array = file("mensa.txt");
-  $test = count(file("mensa.txt")); //FIXME: Jede Woche aktuallisieren
-  echo $array[date("w")];
+  //$array = file("mensa.txt");
+//  $test = count(file("mensa.txt")); //FIXME: Jede Woche aktuallisieren
+//  echo $array[date("w")];
+$t = date("H");
+if ($t > "14") {
+    echo "<i>Abendessen:</i><br>";
+    $array = file("mensaa.txt");
+    $test = count(file("mensaa.txt"));
+    echo $array[date("w")];
+} else {
+    echo "Mittagessen!";
+    $array = file("mensa.txt");
+    $test = count(file("mensa.txt"));
+    echo $array[date("w")];
+}
   ?> </h3>
 </div>
 </div>

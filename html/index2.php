@@ -74,10 +74,19 @@
                         </div>
                         <div class="panel-body">
 
-                          <h3> <?php  // Modul Mensa - Lecker lecker
-                          $array = file("mensa.txt");
-                          $test = count(file("mensa.txt")); //FIXME: Jede Woche aktuallisieren
-                          echo $array[date("w")];
+                          <h3> <?php
+                          $t = date("H");
+                          if ($t > "14") {
+                              echo "<i>Abendessen:</i><br>";
+                              $array = file("mensaa.txt");
+                              $test = count(file("mensaa.txt"));
+                              echo $array[date("w")];
+                          } else {
+                            //  echo "Mittagessen!";
+                              $array = file("mensa.txt");
+                              $test = count(file("mensa.txt"));
+                              echo $array[date("w")];
+                          }
                           ?> </h3>
 
                         </div>
@@ -85,7 +94,7 @@
 		                  <!-- NEWSTICKER -->
                     <div class="panel panel-info">
                         <div class="panel-heading">
-                    <h4><b> Newsticker - <i>Urspringblog</i> & Tagesschau </b></h4>
+                    <h4><b> Newsticker - <i>Urspringblog</i> &amp; Tagesschau </b></h4>
                         </div>
                         <div class="panel-body" id="newsticker">
                           <span style="font-size:1.03em;"><h3><i>
@@ -169,7 +178,7 @@
 
                     <p align="right"><img src="logow.png" alt="Logo der Urspringschule" class="pull-right" width="68" height="51"></p> <!-- Nettes Urspringlogo -->
                 <p>
-                  Version 1.1.1 vom 09.04.16 <br> proudly presented by OJJGHSLH
+                  Version 1.2.0 vom 18.04.16 <br> proudly presented by OJJGHSLH
                 </p>
                 </div><!-- /RECHTE SPALTE -->
 
