@@ -1,8 +1,8 @@
 Brunch von 10-12 Uhr
-<i>Abendessen:</i> Gemüsesuppe
-Pizza <br /> Pizza vegetarisch <br /> <i>Orangencreme</i>
-Cordon-Bleu mit Kartoffeln und Blumenkohl <br /> Aubergine-Cordon-Bleu mit Kartoffeln und Blumenkohl <br /> <i>Wassermelone</i>
-Wildlachs mit Reis und Wirsing <br /> Kartoffel-Gemüsepfanne mit Bärlauch <br /> <i>Vanilleeis mit Bananen und Schokosauce</i>
-Nürnberger Rostbratwurst mit Sauerkraut und Petersilienkartoffel <br />Krautschupfnudeln <br /> <i>Apfelkuchen</i>
+MO
+Gaisburger Marsch <br /> Gaisburger Marsch vegetarisch <br /> <i>Apfelkuchen</i>
+Cevapcici mit Aivar, Aubergine und Nudelreis <br /> Nudelrisotto mit Tomaten,Zuccini und Parmesan <br /> <i>Pfirsich</i>
+Fischfilet mit Remuladensauce, Salzkartoffeln und gebratenem Gemüse <br /> Milchreis mit Früchten und Zimtzucker <br /> <i>Obst</i>
+Rote Bratwurst mit Kartoffelsalat und Petersilienwurzel<br />Vegetarische Bratwurst mit Kartoffelsalat<br /> <i>Creme Bruleé</i>
 Samstag
 9
