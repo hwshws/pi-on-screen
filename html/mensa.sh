@@ -8,26 +8,31 @@ if [ $date -eq 1 ]; then #montag
   #TODO: xls in xlsx umwandeln, bzw. eine andere Möglichkeit finden Viell. Webservice?
   xlsx2csv -d$ -s2 Speiseplan.xlsx > essen.csv
   #INFO: date +%u
-  cut -d$ -f2 essen.csv > 1.txt
-  cut -d$ -f3 essen.csv > 2.txt
-  cut -d$ -f4 essen.csv > 3.txt
-  cut -d$ -f5 essen.csv > 4.txt
-  cut -d$ -f6 essen.csv > 5.txt
-  sed '1,1d' $date.txt -i #entfernt die erste Zeile
-  sed '1,1d' $date.txt -i #entfernt die erste Zeile
-  sed 's/^[ \t]*//' $date.txt -i #entfernt führende Leerzeichen
-  sed 's/ \+/ /g' $date.txt -i #entfernt überflüssige Leerzeichen
-  sed '/./!d' $date.txt -i #entfernt Leerzeilen
-  sed 's/$/<br>/' $date.txt -i
-  head $date.txt -n 3 > mittag.txt #Überprüfen
-  tail $date.txt -n 1 > abend.txt  #Überprüfen
-  #IDEA: Ergebnis als Mail an HWS zur Kontrolle und bei Bedarf Korrektur
+for (( i = 1; i < 6; i++ )); do
+    j=$(($i + 1)) #Verschiebung um eine Stelle
+    cut -d$ -f$j essen.csv > $i.txt
+    sed '1,1d' $i.txt -i #entfernt die erste Zeile
+    sed '1,1d' $i.txt -i #entfernt die erste Zeile
+    sed 's/^[ \t]*//' $i.txt -i #entfernt führende Leerzeichen
+    sed 's/ \+/ /g' $i.txt -i #entfernt überflüssige Leerzeichen
+    sed '/./!d' $i.txt -i #entfernt Leerzeilen
+   sed 's/$/<br>/' $i.txt -i #Zeilenumbruch am Zeilenende
+  done
+  head $date.txt -n 3 > mittag.txt
+  tail $date.txt -n 1 > abend.txt
+
+  for (( i = 1; i < 6; i++ )); do
+    VAR="$(cat $i.txt)"
+    API="$(cat pushbullet.txt)"
+MSG="$VAR"
+DATE="$i"
+
+curl -u $API: https://api.pushbullet.com/v2/pushes -d type=note -d title="$DATE" -d body="$MSG"
+
+done
 
 else #Di-Fr
 
-  sed 's/^[ \t]*//' $date.txt -i #entfernt führende Leerzeichen
-  sed 's/ \+/ /g' $date.txt -i #entfernt überflüssige Leerzeichen
-  sed 's/$/<br>/' $date.txt -i
   head $date.txt -n 3 > mittag.txt #Überprüfen
   tail $date.txt -n 1 > abend.txt #Überprüfen
 fi
