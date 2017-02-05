@@ -40,7 +40,7 @@
                     <!--Fahrplan -->
                     <?php
                    $t = date("H");
-                    if ($t <= "15") : ?>
+                    if ($t >= "15") : ?>
                       <div class="panel panel-success">
                           <div class="panel-heading">
                            <h4><b>   Ihre nächsten Verbindungen </b></h4>
@@ -59,7 +59,7 @@
                           </div>
                           <div class="panel-body" id="zitat">
                        <h4><b><?php $zitat = file_get_contents('zitatdestages.txt'); echo $zitat;?></b></h4></div> <!--Chronjob sollte laufen -->
-                          
+
                       </div>
 			<!-- UHRZEIT -->
                     <div class="panel panel-default">
