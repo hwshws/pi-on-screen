@@ -30,23 +30,37 @@
                       <h4><b>      Vertretungsplan / Bekanntmachungen </b></h4>
                         </div>
                         <div><h3>
-                          <?php include 'vplan.php'; ?>
+                        <!--  <?php include 'vplan.php'; ?>   -->
+                    Leider gelingt es dem Verantwortlichen nicht, den Vertretungsplan zur Verfügung zu stellen. <br><br> Das tut uns leid.
                           </h3>
 
                         </div>
                     </div><!-- /VERTRETUNGSPLAN -->
 
-                    <!-- ZITAT -->
-                    <div class="panel panel-success">
-                        <div class="panel-heading">
-                         <h4><b>   Zitat des Tages  </b></h4>
-                        </div>
-                        <div class="panel-body" id="zitat">
-                     <h4><b><?php $zitat = file_get_contents('zitatdestages.txt'); echo $zitat;?></div> <!--Chronjob sollte laufen -->
-             <!--       <div class="panel-footer">
-                            <i> <!-- &#126; --> <?php //$autor = file_get_contents('autordestages.txt'); echo "$autor";?></i> </b><h4>
-                        </div>
-                    </div><!-- /ZITAT -->
+                    <!--Fahrplan -->
+                    <?php
+                   $t = date("H");
+                    if ($t <= "15") : ?>
+                      <div class="panel panel-success">
+                          <div class="panel-heading">
+                           <h4><b>   Ihre nächsten Verbindungen </b></h4>
+                          </div>
+                          <div class="panel-body" id="zitat">
+                       <h4><b><img src="https://vrrf.finalrewind.org/Schelklingen/Schelklingen.png?frontend=png&backend=efa.DING" alt="Abfahrtstafel"  width="470" height="125"  ></b></div> <!--Chronjob sollte laufen -->
+                      </div>
+
+                    <?php else : ?>
+                    <?php endif; ?>
+                   <!-- /Fahrplan -->
+
+                   <div class="panel panel-success">
+                          <div class="panel-heading">
+                           <h4><b>   Zitat des Tages  </b></h4>
+                          </div>
+                          <div class="panel-body" id="zitat">
+                       <h4><b><?php $zitat = file_get_contents('zitatdestages.txt'); echo $zitat;?></b></h4></div> <!--Chronjob sollte laufen -->
+                          
+                      </div>
 			<!-- UHRZEIT -->
                     <div class="panel panel-default">
                         <div class="panel-body" id="uhrzeit" style="text-align:right;">
@@ -68,25 +82,28 @@
                         </div>
                         <div class="panel-body">
 
-                          <h3> <?php  // Modul Mensa - Lecker lecker
-                         $t = date("H"); // Hinweis: Der Cronjob sollte laufen!
-                          if ($t > "14") {
-                             echo "<i>Abendessen:</i><br>";
-                             $abendessen = file_get_contents('abend.txt');
-                             echo $abendessen;
-                          } else {
-                            //  echo "Mittagessen!";
-                            $mittagessen = file_get_contents('mittag.txt');
-                            echo $mittagessen;
-                          }
-                          ?> </h3>
+                          <h3>Leider gelingt es den Verantwortlichen nicht, den Speiseplan zur Verfügung zu stellen. <br>
+                            Bitte Aushang beachten.</h3>
+
 
                         </div>
                     </div><!-- /SPEISEPLAN -->
-		<!-- NEWSTICKER -->
+                    <!-- Wetter -->
+                    <div class="panel panel-danger">
+                        <div class="panel-heading">
+                         <h4><b>   Wetter </b></h4>
+                        </div>
+                        <div class="panel-body">
+
+                          <div id='tameteo' style='font-family:Arial;text-align:center;border:solid 1px #000000; background:#DCEDE0; width:155px; padding:4px'><a href='http://www.mein-wetter.com/schelklingen.htm' target='_blank' title='Wetter Blaubeuren' style='font-weight: bold;font-size:14px;text-decoration:none;color:#000000;line-height:12px;'>Urspring</a><br/><a href='http://www.mein-wetter.com' target='_blank' title='mein-wetter.com'><img src='http://www.mein-wetter.com/widget4/a9f47ef2e83b474d91fe89c8a6cb5491.png' border='0'></a><br/><a href='http://www.mein-wetter.com' style='font-size:10px;text-decoration:none;color:#000000;line-height:10px;' target='_blank' >&copy; mein-wetter.com</a></div>
+
+
+                        </div>
+                    </div><!-- /Wertter -->
+		                  <!-- NEWSTICKER -->
                     <div class="panel panel-info">
                         <div class="panel-heading">
-                    <h4><b> Newsticker - <i>Urspringblog</i> & Tagesschau </b></h4>
+                    <h4><b> Newsticker - <i>Urspringblog</i> &amp; Tagesschau </b></h4>
                         </div>
                         <div class="panel-body" id="newsticker">
                           <span style="font-size:1.03em;"><h3><i>
@@ -126,8 +143,8 @@
                               foreach ($out as $value) {
                                   echo $value['title']."<br>";
                               } ?>
-				</i>
-				<?php
+				                    </i>
+				                    <?php
 
                               // TAGESSCHAU -Feed einlesen
                               if( !$xml = simplexml_load_file('http://www.tagesschau.de/xml/rss2') ) {
@@ -170,7 +187,7 @@
 
                     <p align="right"><img src="logow.png" alt="Logo der Urspringschule" class="pull-right" width="68" height="51"></p> <!-- Nettes Urspringlogo -->
                 <p>
-                  Version 1.3.0 vom 14.10.16 <br> proudly presented by OJJGHSLH
+                  Version 1.4.2-sv vom 05.02.17 <br> proudly presented by OJJGHSLH
                 </p>
                 </div><!-- /RECHTE SPALTE -->
 
@@ -180,7 +197,7 @@
         </div><!-- /.container -->
 
         <!-- JavaScript goes last for the page to load faster -->
-        <script type="application/javascript" src="js/jquery-1.11.2.min.js"></script>
+        <script type="application/javascript" src="js/jquery.min.js"></script>
         <script type="application/javascript" src="js/bootstrap.min.js"></script>
         <script type="application/javascript" src="js/holder.js"></script>
         <script type="application/javascript" src="js/logic.js"></script>
