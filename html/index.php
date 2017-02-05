@@ -9,7 +9,7 @@
         <!--<link rel="stylesheet" href="css/bootstrap-theme.min.css">-->
         <meta name="description" content="Das Urspringer Schwarze Brett - nur zum internen Gebrauch">
         <meta name="author" content="HWS">
-        <meta http-equiv="refresh" content="60; URL=http://127.0.0.1/index.php" />
+        <meta http-equiv="refresh" content="60; URL=index.php" />
         <title>USB - Urspringer Schwarzes Brett</title>
         <link rel="stylesheet" href="css/style.css">
         <script language="javascript" type="text/javascript" src="uhr.js"></script>
