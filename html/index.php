@@ -13,6 +13,9 @@
         <title>USB - Urspringer Schwarzes Brett</title>
         <link rel="stylesheet" href="css/style.css">
         <script language="javascript" type="text/javascript" src="uhr.js"></script>
+        <style>
+
+    </style>
     </head>
     <body>
 
@@ -38,9 +41,7 @@
                     </div><!-- /VERTRETUNGSPLAN -->
 
                     <!--Fahrplan -->
-                    <?php
-                   $t = date("H");
-                    if ($t >= "15") : ?>
+
                       <div class="panel panel-success">
                           <div class="panel-heading">
                            <h4><b>   Ihre nächsten Verbindungen </b></h4>
@@ -48,9 +49,6 @@
                           <div class="panel-body" id="zitat">
                        <h4><b><img src="https://vrrf.finalrewind.org/Schelklingen/Schelklingen.png?frontend=png&backend=efa.DING" alt="Abfahrtstafel"  width="470" height="125"  ></b></div> <!--Chronjob sollte laufen -->
                       </div>
-
-                    <?php else : ?>
-                    <?php endif; ?>
                    <!-- /Fahrplan -->
 
                    <div class="panel panel-success">
@@ -89,17 +87,25 @@
                         </div>
                     </div><!-- /SPEISEPLAN -->
                     <!-- Wetter -->
-                    <div class="panel panel-danger">
-                        <div class="panel-heading">
-                         <h4><b>   Wetter </b></h4>
-                        </div>
-                        <div class="panel-body">
-
-                          <div id='tameteo' style='font-family:Arial;text-align:center;border:solid 1px #000000; background:#DCEDE0; width:155px; padding:4px'><a href='http://www.mein-wetter.com/schelklingen.htm' target='_blank' title='Wetter Blaubeuren' style='font-weight: bold;font-size:14px;text-decoration:none;color:#000000;line-height:12px;'>Urspring</a><br/><a href='http://www.mein-wetter.com' target='_blank' title='mein-wetter.com'><img src='http://www.mein-wetter.com/widget4/a9f47ef2e83b474d91fe89c8a6cb5491.png' border='0'></a><br/><a href='http://www.mein-wetter.com' style='font-size:10px;text-decoration:none;color:#000000;line-height:10px;' target='_blank' >&copy; mein-wetter.com</a></div>
+                             <div class="panel panel-success">
+                                 <div class="panel-heading">
+                                      <h4><b>   Wetter </b></h4>
+                                           </div>
+                                           <div class="panel-body">
 
 
-                        </div>
-                    </div><!-- /Wertter -->
+                                             <div style="width: 800px;">
+
+                                             <div style="width: 175px; padding-top: 0px; padding-bottom: 0px; padding-left: 5px; padding-right: 5px; float: left;"><div id='tameteo' style='font-family:Arial;text-align:center;border:solid 1px #000000; background:#DCEDE0; width:155px; padding:4px'><a href='http://www.mein-wetter.com/schelklingen.htm' target='_blank' title='Wetter Blaubeuren' style='font-weight: bold;font-size:14px;text-decoration:none;color:#000000;line-height:12px;'>Urspring</a><br/><a href='http://www.mein-wetter.com' target='_blank' title='mein-wetter.com'><img src='http://www.mein-wetter.com/widget4/a9f47ef2e83b474d91fe89c8a6cb5491.png' border='0'></a><br/></div></div>
+                                             <div style="width: 175px; padding-top: 0px; padding-bottom: 0px; padding-left: 5px; padding-right: 5px; float: left;"><div id='tameteo' style='font-family:Arial;text-align:center;border:solid 1px #000000; background:#DCEDE0; width:155px; padding:4px'><a href='http://www.mein-wetter.com/ulm-donau.htm' target='_blank' title='Wetter Ulm (Donau)' style='font-weight: bold;font-size:14px;text-decoration:none;color:#000000;line-height:12px;'>Ulm</a><br/><a href='http://www.mein-wetter.com' target='_blank' title='mein-wetter.com'><img src='http://www.mein-wetter.com/widget4/1e3523ed49934f8ba2800a5dc7946e8d.png' border='0'></a><br/></div></div>
+                                             <div style="width: 175px; padding-top: 0px; padding-bottom: 0px; padding-left: 5px; padding-right: 5px; float: left;"><div id='tameteo' style='font-family:Arial;text-align:center;border:solid 1px #000000; background:#DCEDE0; width:155px; padding:4px'><a href='http://www.mein-wetter.com/stuttgart.htm' target='_blank' title='Wetter Stuttgart' style='font-weight: bold;font-size:14px;text-decoration:none;color:#000000;line-height:12px;'>Stuttgart</a><br/><a href='http://www.mein-wetter.com' target='_blank' title='mein-wetter.com'><img src='http://www.mein-wetter.com/widget4/30119a98e2384faaaad7e88ee0bdb3b2.png' border='0'></a><br/></div></div>
+                                             <div style="width: 175px; padding-top: 0px; padding-bottom: 0px; padding-left: 5px; padding-right: 5px; float: left;"><div id='tameteo' style='font-family:Arial;text-align:center;border:solid 1px #000000; background:#DCEDE0; width:155px; padding:4px'><a href='http://www.mein-wetter.com/munchen.htm' target='_blank' title='Wetter München' style='font-weight: bold;font-size:14px;text-decoration:none;color:#000000;line-height:12px;'>München</a><br/><a href='http://www.mein-wetter.com' target='_blank' title='mein-wetter.com'><img src='http://www.mein-wetter.com/widget4/7d26bb06d6504309862a981d4646d7db.png' border='0'></a><br/></div></div>
+                                             <div style="clear: left;"></div></div>
+
+                                           </div>
+                   </div><!-- /Wetter -->
+
+
 		                  <!-- NEWSTICKER -->
                     <div class="panel panel-info">
                         <div class="panel-heading">
@@ -187,7 +193,7 @@
 
                     <p align="right"><img src="logow.png" alt="Logo der Urspringschule" class="pull-right" width="68" height="51"></p> <!-- Nettes Urspringlogo -->
                 <p>
-                  Version 1.4.2-sv vom 05.02.17 <br> proudly presented by OJJGHSLH
+                  Version 1.4.4-sv vom 05.02.17 <br> proudly presented by OJJGHSLH
                 </p>
                 </div><!-- /RECHTE SPALTE -->
 
