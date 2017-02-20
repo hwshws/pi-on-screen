@@ -1,11 +1,12 @@
 #!/bin/bash
 #Speiseplan in csv umwandeln und tagesaktuell in Dateien schreiben; mittag.txt und abend.txt werden von USB ausgelesen
-#HWS 15.10.16/26.10.16
+#HWS 15.10.16/26.10.16/20.02.17
 #INFO: in crontab packen und täglich abrufen
 date=`date +%u`
 if [ $date -eq 1 ]; then #montag
-  #wget #Datei von HP TODO: Date mit Goe
-  #TODO: xls in xlsx umwandeln, bzw. eine andere Möglichkeit finden Viell. Webservice?
+  rm Speiseplan.xlsx #von letzter Woche
+  wget http://h-ws.de/Speiseplan.xlsx
+  libreoffice --convert-to xlsx Speiseplan.xls --headless #Umwandlung xls in xlsx
   xlsx2csv -d$ -s2 Speiseplan.xlsx > essen.csv
   #INFO: date +%u
 for (( i = 1; i < 6; i++ )); do
