@@ -56,7 +56,7 @@
                            <h4><b>   Zitat des Tages  </b></h4>
                           </div>
                           <div class="panel-body" id="zitat">
-                       <h4><b><?php $zitat = file_get_contents('zitatdestages.txt'); echo $zitat;?></b></h4></div> <!--Chronjob sollte laufen -->
+                       <h4><b><?php $zitat = file_get_contents('zitatdestages.txt'); echo $zitat;?></b></h4></div> <!--Cronjob sollte laufen -->
 
                       </div>
 			<!-- UHRZEIT -->
@@ -76,14 +76,21 @@
                     <!-- SPEISEPLAN -->
                     <div class="panel panel-danger">
                         <div class="panel-heading">
-                         <h4><b>   Speiseplan </b></h4>
+                         <h4><b>   Speiseplan - Testphase </b></h4>
                         </div>
                         <div class="panel-body">
-
-                          <h3>Leider gelingt es den Verantwortlichen nicht, den Speiseplan zur Verfügung zu stellen. <br>
-                            Bitte Aushang beachten.</h3>
-
-
+                          <h3> <?php
+                         $t = date("H"); // Hinweis: Der Cronjob sollte laufen!
+                          if ($t > "14") {
+                             echo "<i>Abendessen:</i><br>";
+                             $abendessen = file_get_contents('abend.txt');
+                             echo $abendessen;
+                          } else {
+                              echo "Heute zum Mittagessen!";
+                            $mittagessen = file_get_contents('mittag.txt');
+                            echo $mittagessen;
+                          }
+                          ?> </h3>
                         </div>
                     </div><!-- /SPEISEPLAN -->
                     <!-- Wetter -->

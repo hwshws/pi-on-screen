@@ -37,7 +37,7 @@
                     </div><!-- /VERTRETUNGSPLAN -->
 
                     <!-- ZITAT -->
-                    <?php  // Modul Mensa - Lecker lecker
+                    <?php  
                    $t = date("H"); // Hinweis: Der Cronjob sollte laufen!
                     if ($t > "15") : ?>
                       <div class="panel panel-success">
