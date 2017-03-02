@@ -2,6 +2,7 @@
 #Speiseplan in csv umwandeln und tagesaktuell in Dateien schreiben; mittag.txt und abend.txt werden von USB ausgelesen
 #HWS 15.10.16/26.10.16/20.02.17
 #INFO: in crontab packen und täglich abrufen
+cd /home/pi/vplan/html
 date=`date +%u`
 if [ $date -eq 1 ]; then #montag
   rm Speiseplan.xlsx #von letzter Woche
@@ -24,7 +25,7 @@ for (( i = 1; i < 6; i++ )); do
 
   for (( i = 1; i < 6; i++ )); do
     VAR="$(cat $i.txt)"
-    API="$(cat pushbullet.txt)"
+    API="$(cat /home/pi/vplan/html/pushbullet.txt)"
 MSG="$VAR"
 DATE="$i"
 
@@ -36,4 +37,11 @@ else #Di-Fr
 
   head $date.txt -n 3 > mittag.txt #Überprüfen
   tail $date.txt -n 1 > abend.txt #Überprüfen
+  VAR="$(cat $date.txt)"
+  API="$(cat /home/pi/vplan/html/pushbullet.txt)"
+MSG="$VAR"
+DATE="$i"
+
+curl -u $API: https://api.pushbullet.com/v2/pushes -d type=note -d title="$DATE" -d body="$MSG"
+
 fi
