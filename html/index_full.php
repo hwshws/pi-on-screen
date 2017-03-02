@@ -37,7 +37,7 @@
                     </div><!-- /VERTRETUNGSPLAN -->
 
                     <!-- ZITAT -->
-                    <?php  
+                    <?php
                    $t = date("H"); // Hinweis: Der Cronjob sollte laufen!
                     if ($t > "15") : ?>
                       <div class="panel panel-success">
@@ -197,7 +197,5 @@
         <!-- JavaScript goes last for the page to load faster -->
         <script type="application/javascript" src="js/jquery-1.11.2.min.js"></script>
         <script type="application/javascript" src="js/bootstrap.min.js"></script>
-        <script type="application/javascript" src="js/holder.js"></script>
-        <script type="application/javascript" src="js/logic.js"></script>
     </body>
 </html>
