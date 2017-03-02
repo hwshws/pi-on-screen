@@ -16,7 +16,8 @@
     <p class="lead">Willkommen in der Konfiguration für das Urspringer Schwarze Brett. <i>(USB)</i><br>
     Die Nutzung sollte selbsterklärend sein.</p>
 
-
+<div class="alert alert-danger" role="alert"><b>Achtung!</b>Technisch bedingt, und auch der Internetbandbreite geschuldet, kann es bis zu 10 Minuten dauern, bis die Nachricht auf dem
+Fernseher erscheint. <br> Zwischen 18 Uhr und 7 Uhr findet ebenfalls keine Aktualisierung statt.</div>
 <form class="form-horizontal" method="post" action="ausw.php">
 <fieldset>
 
