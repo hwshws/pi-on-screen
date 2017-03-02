@@ -6,21 +6,16 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="css/bootstrap.min.css">
-        <!--<link rel="stylesheet" href="css/bootstrap-theme.min.css">-->
         <meta name="description" content="Das Urspringer Schwarze Brett - nur zum internen Gebrauch">
         <meta name="author" content="HWS">
         <meta http-equiv="refresh" content="60; URL=index.php" />
         <title>USB - Urspringer Schwarzes Brett</title>
-        <link rel="stylesheet" href="css/style.css">
         <script language="javascript" type="text/javascript" src="uhr.js"></script>
-        <style>
-
-    </style>
     </head>
     <body>
 
         <div class="container-fluid" id="content">
-<br>
+          <br>
 
             <div class="row">
 
@@ -30,11 +25,11 @@
                     <!-- VERTRETUNGSPLAN -->
                     <div class="panel panel-primary">
                         <div class="panel-heading">
-                      <h4><b>      Vertretungsplan / Bekanntmachungen </b></h4>
+                      <h4><b> <!--     Vertretungsplan /--> Bekanntmachungen </b></h4>
                         </div>
                         <div><h3>
                         <!--  <?php include 'vplan.php'; ?>   -->
-                    Leider gelingt es dem Verantwortlichen nicht, den Vertretungsplan zur Verfügung zu stellen. <br><br> Das tut uns leid.
+                        <?php $message = file_get_contents('message.txt'); echo $message;?>
                           </h3>
 
                         </div>
@@ -86,7 +81,6 @@
                              $abendessen = file_get_contents('abend.txt');
                              echo $abendessen;
                           } else {
-                              echo "Heute zum Mittagessen!";
                             $mittagessen = file_get_contents('mittag.txt');
                             echo $mittagessen;
                           }
@@ -106,12 +100,10 @@
                                              <div style="width: 175px; padding-top: 0px; padding-bottom: 0px; padding-left: 5px; padding-right: 5px; float: left;"><div id='tameteo' style='font-family:Arial;text-align:center;border:solid 1px #000000; background:#DCEDE0; width:155px; padding:4px'><a href='http://www.mein-wetter.com/schelklingen.htm' target='_blank' title='Wetter Blaubeuren' style='font-weight: bold;font-size:14px;text-decoration:none;color:#000000;line-height:12px;'>Urspring</a><br/><a href='http://www.mein-wetter.com' target='_blank' title='mein-wetter.com'><img src='http://www.mein-wetter.com/widget4/a9f47ef2e83b474d91fe89c8a6cb5491.png' border='0'></a><br/></div></div>
                                              <div style="width: 175px; padding-top: 0px; padding-bottom: 0px; padding-left: 5px; padding-right: 5px; float: left;"><div id='tameteo' style='font-family:Arial;text-align:center;border:solid 1px #000000; background:#DCEDE0; width:155px; padding:4px'><a href='http://www.mein-wetter.com/ulm-donau.htm' target='_blank' title='Wetter Ulm (Donau)' style='font-weight: bold;font-size:14px;text-decoration:none;color:#000000;line-height:12px;'>Ulm</a><br/><a href='http://www.mein-wetter.com' target='_blank' title='mein-wetter.com'><img src='http://www.mein-wetter.com/widget4/1e3523ed49934f8ba2800a5dc7946e8d.png' border='0'></a><br/></div></div>
                                              <div style="width: 175px; padding-top: 0px; padding-bottom: 0px; padding-left: 5px; padding-right: 5px; float: left;"><div id='tameteo' style='font-family:Arial;text-align:center;border:solid 1px #000000; background:#DCEDE0; width:155px; padding:4px'><a href='http://www.mein-wetter.com/stuttgart.htm' target='_blank' title='Wetter Stuttgart' style='font-weight: bold;font-size:14px;text-decoration:none;color:#000000;line-height:12px;'>Stuttgart</a><br/><a href='http://www.mein-wetter.com' target='_blank' title='mein-wetter.com'><img src='http://www.mein-wetter.com/widget4/30119a98e2384faaaad7e88ee0bdb3b2.png' border='0'></a><br/></div></div>
-                                             <div style="width: 175px; padding-top: 0px; padding-bottom: 0px; padding-left: 5px; padding-right: 5px; float: left;"><div id='tameteo' style='font-family:Arial;text-align:center;border:solid 1px #000000; background:#DCEDE0; width:155px; padding:4px'><a href='http://www.mein-wetter.com/munchen.htm' target='_blank' title='Wetter München' style='font-weight: bold;font-size:14px;text-decoration:none;color:#000000;line-height:12px;'>München</a><br/><a href='http://www.mein-wetter.com' target='_blank' title='mein-wetter.com'><img src='http://www.mein-wetter.com/widget4/7d26bb06d6504309862a981d4646d7db.png' border='0'></a><br/></div></div>
                                              <div style="clear: left;"></div></div>
-
                                            </div>
-                   </div><!-- /Wetter -->
-
+                   </div>
+                   <!-- /Wetter -->
 
 		                  <!-- NEWSTICKER -->
                     <div class="panel panel-info">
@@ -200,7 +192,7 @@
 
                     <p align="right"><img src="logow.png" alt="Logo der Urspringschule" class="pull-right" width="68" height="51"></p> <!-- Nettes Urspringlogo -->
                 <p>
-                  Version 1.4.4-sv vom 05.02.17 <br> proudly presented by OJJGHSLH
+                  Version 1.5-sv vom 02.03.17 <br> proudly presented by OJJGHSLH
                 </p>
                 </div><!-- /RECHTE SPALTE -->
 
@@ -212,7 +204,5 @@
         <!-- JavaScript goes last for the page to load faster -->
         <script type="application/javascript" src="js/jquery.min.js"></script>
         <script type="application/javascript" src="js/bootstrap.min.js"></script>
-        <script type="application/javascript" src="js/holder.js"></script>
-        <script type="application/javascript" src="js/logic.js"></script>
     </body>
 </html>
