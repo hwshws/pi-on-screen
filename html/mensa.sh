@@ -25,7 +25,7 @@ for (( i = 1; i < 6; i++ )); do
 
   for (( i = 1; i < 6; i++ )); do
     VAR="$(cat $i.txt)"
-    API="$(cat pushbullet.txt)"
+    API="$(cat /home/pi/vplan/html/pushbullet.txt)"
 MSG="$VAR"
 DATE="$i"
 
@@ -38,7 +38,7 @@ else #Di-Fr
   head $date.txt -n 3 > mittag.txt #Überprüfen
   tail $date.txt -n 1 > abend.txt #Überprüfen
   VAR="$(cat $date.txt)"
-  API="$(cat pushbullet.txt)"
+  API="$(cat /home/pi/vplan/html/pushbullet.txt)"
 MSG="$VAR"
 DATE="$i"
 
