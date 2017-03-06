@@ -3,10 +3,14 @@
 #HWS 15.10.16/26.10.16/20.02.17
 #INFO: in crontab packen und täglich abrufen
 cd /home/pi/vplan/html
-date=`date +%u`
+message=`date -r message.txt +%U |bc`
+#week=`date +%U | bc`
+date=`date +%u `
+API="$(cat /home/pi/vplan/html/pushbullet.txt)"
 if [ $date -eq 1 ]; then #montag
   rm Speiseplan.xlsx #von letzter Woche
-  wget http://h-ws.de/Speiseplan.xlsx
+  rm Speiseplan.xls #von letzter Woche
+  wget http://h-ws.de/Speiseplan.xls
   libreoffice --convert-to xlsx Speiseplan.xls --headless #Umwandlung xls in xlsx
   xlsx2csv -d$ -s2 Speiseplan.xlsx > essen.csv
   #INFO: date +%u
@@ -25,7 +29,6 @@ for (( i = 1; i < 6; i++ )); do
 
   for (( i = 1; i < 6; i++ )); do
     VAR="$(cat $i.txt)"
-    API="$(cat /home/pi/vplan/html/pushbullet.txt)"
 MSG="$VAR"
 DATE="$i"
 
@@ -38,7 +41,7 @@ else #Di-Fr
   head $date.txt -n 3 > mittag.txt #Überprüfen
   tail $date.txt -n 1 > abend.txt #Überprüfen
   VAR="$(cat $date.txt)"
-  API="$(cat /home/pi/vplan/html/pushbullet.txt)"
+
 MSG="$VAR"
 DATE="$i"
 

@@ -13,6 +13,7 @@
         <link rel="stylesheet" href="css/style.css">
     </head>
     <body>
+<div class="col-md-6">
     <p class="lead">Willkommen in der Konfiguration für das Urspringer Schwarze Brett. <i>(USB)</i><br>
     Die Nutzung sollte selbsterklärend sein.</p>
 
@@ -71,6 +72,7 @@ echo nl2br($message);
 
 
  ?>
+ </div>
 <!-- JavaScript goes last for the page to load faster -->
 <script type="application/javascript" src="js/jquery.min.js"></script>
 <script type="application/javascript" src="js/bootstrap.min.js"></script>
