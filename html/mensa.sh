@@ -6,7 +6,7 @@ cd /home/pi/vplan/html
 date=`date +%u`
 if [ $date -eq 1 ]; then #montag
   rm Speiseplan.xlsx #von letzter Woche
-  wget http://h-ws.de/Speiseplan.xlsx
+  wget http://h-ws.de/Speiseplan.xls
   libreoffice --convert-to xlsx Speiseplan.xls --headless #Umwandlung xls in xlsx
   xlsx2csv -d$ -s2 Speiseplan.xlsx > essen.csv
   #INFO: date +%u
