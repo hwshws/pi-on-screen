@@ -1,10 +1,18 @@
 
 <?php
-$target_dir = "/home/heinz-wilhelm/pi-on-screen/html/upload/";
+$filename = $_GET['filename'];
+//$target_dir = "/home/heinz-wilhelm/pi-on-screen/html/upload/";
+$target_dir = "/home/user/Projects/pi-on-screen/html/upload/";
 $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
 $uploadOk = 1;
 $fileType = pathinfo($target_file,PATHINFO_EXTENSION);
-$target_name = $target_dir . "speiseplan." . $fileType;
+$target_name = $target_dir . $filename . "." . $fileType;
+if($filename === null) {
+    $uploadOk = 0;
+}
+if($filename != "geburtstage" && $filename != "speiseplan") {
+    $uploadOk = 0;
+}
 // Check if file already exists
 if (file_exists($target_file)) {
     //echo "Sorry, file already exists.";
@@ -13,12 +21,12 @@ if (file_exists($target_file)) {
 }
 // Check file size
 if ($_FILES["fileToUpload"]["size"] > 500000) {
-    echo "Sorry, your file is too large.";
+    //echo "Sorry, your file is too large.";
     $uploadOk = 0;
 }
 // Allow certain file formats
 if($fileType != "xls" && $fileType != "xlsx") {
-    echo "FALSCH!";
+    //echo "FALSCH!";
     $uploadOk = 0;
 }
 // Check if $uploadOk is set to 0 by an error

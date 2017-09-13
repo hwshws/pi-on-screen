@@ -12,20 +12,9 @@
     <title>Frontend-USB-füttern</title>
     <!-- <link rel="stylesheet" href="css/style.css"> -->
     <style>
-        h2 {
-            margin: 1em 0;
-        }
-
-        legend {
-            padding-top: 8px;
-        }
-
-        fieldset {
-            text-align: right;
-        }
-
-        .red {
+        .aktuell {
             color: #ff0000;
+            margin: 1em 0;
         }
 
         .view {
@@ -89,7 +78,7 @@
 
         </fieldset>
     </form>
-    <h3 class="red"><i>Aktuell zu sehen</i></h3>
+    <h3 class="aktuell"><i>Aktuell zu sehen</i></h3>
     <?php
     $lines = file('hws.txt');
     $letzte_zeile = $lines[count($lines) - 1];
@@ -111,26 +100,50 @@
     ?>
 </div>
 <div class="view" id="mensa-view">
-    <form method="post" action="upload/upload.php" enctype="multipart/form-data">
+    <form method="post" action="upload/upload.php?filename=speiseplan" enctype="multipart/form-data">
         <fieldset>
             <!-- Form Name -->
             <legend>UBS Speiseplan</legend>
             <div class="form-group">
                 <input type="file" name="fileToUpload" id="fileToUpload">
             </div>
-            <div class="form-group">
-                <button id="send" name="send" class="btn btn-info">Hochladen</button>
-            </div>
             <p class="small"><?php
-                $target_dir = "/home/heinz-wilhelm/pi-on-screen/html/upload/";
-                $targetFile = "Speiseplan.xls";
-                if (file_exists($target_dir . $targetFile)) {
-                    echo "Speiseplan wurde zuletzt modifiziert:: " . date("F d Y H:i:s.", filemtime($target_dir . $targetFile));
-                    $targetFile = "Speiseplan.xlcx";
-                } elseif (file_exists($target_dir . "Speiseplan.xlcx")) {
+                $target_dir = "/home/user/Projects/pi-on-screen/html/upload/";
+                //$target_dir = "/home/heinz-wilhelm/pi-on-screen/html/upload/";
+                $targetFile = "speiseplan.xls";
+                if (file_exists($target_dir . "speiseplan.xls")) {
+                    echo "Speiseplan wurde zuletzt modifiziert:: " . date("F d Y H:i:s.", filemtime($target_dir . "speiseplan.xls"));
+                } elseif (file_exists($target_dir . "speiseplan.xlcx")) {
                     echo "Speiseplan wurde zuletzt modifiziert:: " . date("F d Y H:i:s.", filemtime($target_dir . "Speiseplan.xlcx"));
                 }
                 ?></p>
+            <div class="form-group">
+                <button id="send" name="send" class="btn btn-info">Hochladen</button>
+            </div>
+        </fieldset>
+    </form>
+</div>
+<div class="view" id="geb-view">
+    <form method="post" action="upload/upload.php?filename=geburtstage" enctype="multipart/form-data">
+        <fieldset>
+            <!-- Form Name -->
+            <legend>UBS Speiseplan</legend>
+            <div class="form-group">
+                <input type="file" name="fileToUpload" id="fileToUpload">
+            </div>
+            <p class="small"><?php
+                $target_dir = "/home/user/Projects/pi-on-screen/html/upload/";
+                //$target_dir = "/home/heinz-wilhelm/pi-on-screen/html/upload/";
+                $targetFile = "speiseplan.xls";
+                if (file_exists($target_dir . "geburtstage.xls")) {
+                    echo "Speiseplan wurde zuletzt modifiziert:: " . date("F d Y H:i:s.", filemtime($target_dir . "speiseplan.xls"));
+                } elseif (file_exists($target_dir . "geburtstage.xlcx")) {
+                    echo "Speiseplan wurde zuletzt modifiziert:: " . date("F d Y H:i:s.", filemtime($target_dir . "Speiseplan.xlcx"));
+                }
+                ?></p>
+            <div class="form-group">
+                <button id="send" name="send" class="btn btn-info">Hochladen</button>
+            </div>
         </fieldset>
     </form>
 </div>
