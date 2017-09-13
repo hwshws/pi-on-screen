@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 
 <!--html manifest="this.appcache"-->
-<html xmlns="http://www.w3.org/1999/html" lang="de">
+<html xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html" lang="de">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -43,7 +43,7 @@
 <h2>Willkommen in der Konfiguration für das Urspringer Schwarze Brett. <i>(USB)</i><br>
     Die Nutzung sollte selbsterklärend sein.</h2>
 
-<div class="alert alert-danger" role="alert"><b>Achtung!</b>Technisch bedingt, und auch der Internetbandbreite
+<div class="alert alert-danger" role="alert"><b>Achtung!</b><br>Technisch bedingt, und auch der Internetbandbreite
     geschuldet, kann es bis zu 10 Minuten dauern, bis die Nachricht auf dem
     Fernseher erscheint. <br> Zwischen 18 Uhr und 7 Uhr findet ebenfalls keine Aktualisierung statt.
 </div>
@@ -56,7 +56,7 @@
     <form class="form-horizontal" method="post" action="ausw.php">
         <fieldset>
             <!-- Form Name -->
-            <legend>Urspringer Schwarzes Brett</legend>
+            <legend>Urspringer Schwarzes Brett - Bekanntmachungen</legend>
 
 
             <!-- Text input-->
@@ -114,7 +114,7 @@
     <form method="post" action="upload/upload.php" enctype="multipart/form-data">
         <fieldset>
             <!-- Form Name -->
-            <legend>UBS Speiseplan</legend>
+            <legend>USB Speiseplan</legend>
             <div class="form-group">
                 <input type="file" name="fileToUpload" id="fileToUpload">
             </div>
@@ -127,8 +127,32 @@
                 if (file_exists($target_dir . $targetFile)) {
                     echo "Speiseplan wurde zuletzt modifiziert:: " . date("F d Y H:i:s.", filemtime($target_dir . $targetFile));
                     $targetFile = "Speiseplan.xlcx";
-                } elseif (file_exists($target_dir . "Speiseplan.xlcx")) {
-                    echo "Speiseplan wurde zuletzt modifiziert:: " . date("F d Y H:i:s.", filemtime($target_dir . "Speiseplan.xlcx"));
+                } elseif (file_exists($target_dir . "Speiseplan.xlsx")) {
+                    echo "Speiseplan wurde zuletzt modifiziert:: " . date("F d Y H:i:s.", filemtime($target_dir . "Speiseplan.xlsx"));
+                }
+                ?></p>
+        </fieldset>
+    </form>
+</div>
+<div class="view" id="geb-view">
+    <form method="post" action="upload/upload.php" enctype="multipart/form-data">
+        <fieldset>
+            <!-- Form Name -->
+            <legend>USB Geburtstage</legend>
+            <div class="form-group">
+                <input type="file" name="fileToUpload" id="fileToUpload">
+            </div>
+            <div class="form-group">
+                <button id="send" name="send" class="btn btn-info">Hochladen</button>
+            </div>
+            <p class="small"><?php
+                $target_dir = "/home/heinz-wilhelm/pi-on-screen/html/upload/";
+                $targetFile = "Speiseplan.xls";
+                if (file_exists($target_dir . $targetFile)) {
+                    echo "Gebutstagsliste wurde zuletzt modifiziert:: " . date("F d Y H:i:s.", filemtime($target_dir . $targetFile));
+                    $targetFile = "Speiseplan.xlcx";
+                } elseif (file_exists($target_dir . "Speiseplan.xlsx")) {
+                    echo "Gebutstagsliste wurde zuletzt modifiziert:: " . date("F d Y H:i:s.", filemtime($target_dir . "Speiseplan.xlsx"));
                 }
                 ?></p>
         </fieldset>
@@ -152,6 +176,7 @@
         });
     });
 </script>
-</
->
+
+</ <!-- TODO: Was ist das? -->
+
 </html>
