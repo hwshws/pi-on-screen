@@ -11,6 +11,19 @@
     <!--<link rel="stylesheet" href="css/style.css"> -->
     <script language="javascript" type="text/javascript" src="uhr.js"></script>
     <!-- <script type="application/javascript" src="js/jquery.min.js"></script> -->
+    <style type="text/css">
+        .inhalte {
+            /* color: #000000;
+             background-color: #FFFFFF; */
+            font-size: 1.5em;
+            margin: 20px 0 10px;
+        }
+
+        .panel-body {
+            padding-top: !important;10px;
+            padding-bottom: !important;10px;
+        }
+    </style>
 
 </head>
 
@@ -43,12 +56,10 @@
                 <div class="panel-heading">
                     <h4><b> Ihre nächsten Verbindungen </b></h4>
                 </div>
-                <div class="panel-body" id="zitat">
-                    <h4><b>
-                            <div id="content"><img
-                                        src="https://vrrf.finalrewind.org/Schelklingen/Schelklingen.png?frontend=png&backend=efa.DING"
-                                        id="fahrplan" alt="Abfahrtstafel" width="470" height="125"/></div>
-                        </b>
+                <div class="panel-body inhalte" id="fahrplan">
+                    <div id="content"><img
+                                src="https://vrrf.finalrewind.org/Schelklingen/Schelklingen.png?frontend=png&backend=efa.DING"
+                                id="fahrplan" alt="Abfahrtstafel" width="470" height="125"/></div>
                 </div> <!--Cronjob sollte laufen --></div>
             <!-- /Fahrplan -->
 
@@ -80,9 +91,11 @@
                     <h4><b> Speiseplan - Testphase </b></h4>
                 </div>
                 <div class="panel-body">
-                    <h3>
-                        <div id="mensa"></div>
-                    </h3>
+
+                    <h3 id="mensa"></h3>
+
+                    <h3 id="mensa" style="margin-top: 6px; margin-bottom: 2px;"></h3>
+
                 </div>
             </div><!-- /SPEISEPLAN -->
             <!-- Wetter -->
@@ -128,17 +141,14 @@
                     <h4><b> Newsticker - <i>Urspringblog</i> &amp; Tagesschau </b></h4>
                 </div>
                 <div class="panel-body" id="newsticker">
-                            <span style="font-size:1.03em;">
-
-                                 <div id="news"></div>
-                            </span>
+                    <div id="news" class="inhalte"></div>
                 </div>
             </div><!-- /NEWSTICKER -->
 
             <p align="right"><img src="logow.png" alt="Logo der Urspringschule" class="pull-right" width="68"
                                   height="51"></p> <!-- Nettes Urspringlogo -->
             <p>
-                Version 1.5-ay vom 02.03.17 <br> proudly presented by OJJGHSKPLH
+                Version 1.5.1-ay vom 13.09.17 <br> proudly presented by OJJGHSKPLH
             </p>
         </div><!-- /RECHTE SPALTE -->
 
@@ -170,24 +180,22 @@
         $("#news").load('news.php')
         setInterval(function () {
             $("#news").load('news.php')
-        }, 300000);
+        }, 5 * 60 * 1000);
     });
 
     $(document).ready(function () {
         $("#vplan").load('vplan.php')
         setInterval(function () {
             $("#vplan").load('vplan.php')
-        }, 600000);
+        }, 10 * 60 * 1000);
     });
 
     $(document).ready(function () {
         $("#mensa").load('mensa.php')
         setInterval(function () {
             $("#mensa").load('mensa.php')
-        }, 3600000);
+        }, 30 * 60 * 1000);
     });
-
-
 </script> <!-- http://snipplr.com/view.php?codeview&id=17272 -->
 </body>
 </html>
