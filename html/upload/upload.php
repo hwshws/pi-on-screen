@@ -1,8 +1,7 @@
 
 <?php
 $filename = $_GET['filename'];
-//$target_dir = "/home/heinz-wilhelm/pi-on-screen/html/upload/";
-$target_dir = "/home/user/Projects/pi-on-screen/html/upload/";
+$target_dir = "/opt/usb/";
 $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
 $uploadOk = 1;
 $fileType = pathinfo($target_file,PATHINFO_EXTENSION);
