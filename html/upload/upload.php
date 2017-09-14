@@ -10,7 +10,7 @@ $target_name = $target_dir . $filename . "." . $fileType;
 if($filename === null) {
     $uploadOk = 0;
 }
-if($filename != "geburtstage" && $filename != "speiseplan") {
+if($filename != "Geburtstage" && $filename != "Speiseplan") {
     $uploadOk = 0;
 }
 // Check if file already exists
