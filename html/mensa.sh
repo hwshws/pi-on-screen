@@ -8,8 +8,8 @@ message=`date -r message.txt +%U |bc`
 date=`date +%u `
 API="$(cat /home/pi/vplan/html/pushbullet.txt)"
 if [ $date -eq 1 ]; then #montag
-  rm Speiseplan.xlsx #von letzter Woche
-  rm Speiseplan.xls #von letzter Woche
+  rm Speiseplan.xlsx #von letzter Woche xlsx
+  rm Speiseplan.xls #von letzter Woche  xls
   wget http://h-ws.de/Speiseplan.xls
   libreoffice --convert-to xlsx Speiseplan.xls --headless #Umwandlung xls in xlsx
   xlsx2csv -d$ -s2 Speiseplan.xlsx > essen.csv
