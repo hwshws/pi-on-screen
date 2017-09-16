@@ -21,4 +21,3 @@ libreoffice --convert-to xlsx ${Name}.xls --headless #Umwandlung xls in xlsx
 xlsx2csv -s1 ${Name}.xlsx >> ${Name}.csv  # Beim Datum wird aus . ein /       is halt so
 sed s?/?.?g -i ${Name}.csv #Alle / durch . ersetzen
 sed 's/.\([^.]*\)$/,\1/' -i ${Name}.csv #letztes . durch , ersetzen -> Tag+Monat und Jahr getrennt
-
