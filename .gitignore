@@ -16,3 +16,7 @@ html/message\.txt
 html/log\.txt
 
 \.idea/
+
+html/todo\.php
+
+*.svg
