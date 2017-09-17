@@ -24,6 +24,10 @@
             padding-bottom: !important;
             10px;
         }
+
+        .fahrplan > tr > td {
+            padding-right: 15px;
+        }
     </style>
 
 </head>
