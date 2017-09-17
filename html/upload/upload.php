@@ -46,10 +46,4 @@ if ($uploadOk == 0) {
     }
 }
 ?> <br><br>
-<button onclick="goBack()">Zurück!</button>
-
-<script>
-    function goBack() {
-        window.history.back();
-    }
-</script>
+<button onclick="window.history.back()">Zurück!</button>

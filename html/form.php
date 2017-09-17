@@ -46,7 +46,7 @@
     <button type="button" class="btn btn-default view-btn" id="btn-geb">Geburtstage</button>
 </div>
 <noscript>
-    <h3 class="aktuell">Bitte aktivieren Javascript</h3>
+    <h3 class="aktuell">Diese Seite benötigt Javascript</h3>
 </noscript>
 <div class="view" id="info-view">
     <form class="form-horizontal" method="post" action="ausw.php">

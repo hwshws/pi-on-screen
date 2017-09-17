@@ -12,7 +12,7 @@ today=`date +%e.%m `
 year=`date +%Y`
 Name=Geb_long
 echo ${Name}
-Folder="/home/heinz-wilhelm/pi-on-screen/"
+Folder="/opt/usb"
 #Folder="/home/heinz-wilhelm/pi/vplan/html"
 cd ${Folder}
 wget http://h-ws.de/Geburtstage.xls
