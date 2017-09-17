@@ -1,4 +1,10 @@
-
+<html>
+<header>
+    <script type="text/javascript">
+        setTimeout(() => window.history.back(), 5000);
+    </script>
+</header>
+<body>
 <?php
 $filename = $_GET['filename'];
 $target_dir = "/opt/usb/";

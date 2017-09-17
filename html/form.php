@@ -12,6 +12,10 @@
     <title>Frontend-USB-füttern</title>
     <!-- <link rel="stylesheet" href="css/style.css"> -->
     <style>
+        legend {
+            padding-top: 8px;
+        }
+
         .aktuell {
             color: #ff0000;
             margin: 1em 0;
@@ -41,7 +45,10 @@
     <button type="button" class="btn btn-default view-btn" id="btn-mensa">Speiseplan</button>
     <button type="button" class="btn btn-default view-btn" id="btn-geb">Geburtstage</button>
 </div>
-<div class="view active" id="info-view">
+<noscript>
+    <h3 class="aktuell">Bitte aktivieren Javascript</h3>
+</noscript>
+<div class="view" id="info-view">
     <form class="form-horizontal" method="post" action="ausw.php">
         <fieldset>
             <!-- Form Name -->
@@ -144,24 +151,22 @@
     </form>
 </div>
 
-
 <!-- JavaScript goes last for the page to load faster -->
 <script type="application/javascript" src="js/jquery.min.js"></script>
 <script type="application/javascript" src="js/bootstrap.min.js"></script>
 <script type="text/javascript">
-    $(document).ready(function () {
-        $('.view-btn').click(function () {
-            var viewName = this.id.replace('btn-', '');
-            var view = $('#' + viewName + '-view');
-            if (view.length > 0) {
-                view = view[0];
-                $('.view').removeClass('active');
-                view.classList.add('active');
+    $(document).ready(() => {
+        document.querySelectorAll('.view-btn').forEach(btn => {
+            btn.onclick =  function () {
+                let viewName = this.id.replace('btn-', '');
+                let view = document.querySelector('#' + viewName + '-view');
+                if (view) {
+                    document.querySelectorAll('.view').forEach(element => element.classList.remove('active'));
+                    view.classList.add('active');
+                }
             }
         });
+        document.querySelector('.view').classList.add('active');
     });
 </script>
-
-</ <!-- TODO: Was ist das? -->
-
 </html>
