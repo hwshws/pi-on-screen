@@ -4,6 +4,7 @@ $date = date('d' . '.' . 'm');
 $row = 1;
 if (($handle = fopen("/opt/usb/Geburtstage.csv", "r")) !== FALSE) {
     while (($data = fgetcsv($handle)) !== FALSE) {
+        //data Vorname Nachname Geburtstag Geburtsjahr
         if($date == $data[2]) {
             $alter = date('Y') - $data[3];
             echo $data[0] . " " . $data[1] . " (" . $alter . ")\n";
