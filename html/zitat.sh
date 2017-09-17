@@ -1,11 +1,14 @@
 #!/bin/bash
 name="zitatdestages"
+Folder="/home/heinz-wilhelm/pi-on-screen/html"
+# Folder="/home/heinz-wilhelm/pi-on-screen/html"
+cd $Folder
 a=0
-cd /home/pi/vplan/html
 curl -O http://www.zitate-online.de/zitatdestages.txt
 sed '$d' -i $name.txt
 sed '$d' -i $name.txt
 sed '1,1d' -i $name.txt
+sed -e 's/<[^>]*>//g' -i $name.txt
 # soweit... Sendung des Strings
 #cat $name.txt
 a="$(sed 's/[;&]/./g' $name.txt)"

@@ -30,13 +30,20 @@ if($fileType != "xls" && $fileType != "xlsx") {
 }
 // Check if $uploadOk is set to 0 by an error
 if ($uploadOk == 0) {
-    echo "Sorry, your file was not uploaded.";
+    echo "Sorry, da ging was schief!";
 // if everything is ok, try to upload file
 } else {
     if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_name)) {
-        echo "The file ". basename( $_FILES["fileToUpload"]["name"]). " has been uploaded.";
+        echo "Die Datei ". basename( $_FILES["fileToUpload"]["name"]). " wurde erfolgreich hochgeladen.";
     } else {
-        echo "Sorry, there was an error uploading your file.";
+        echo "Sorry, da ging was schief!";
     }
 }
-?>
+?> <br><br>
+<button onclick="goBack()">Zurück!</button>
+
+<script>
+    function goBack() {
+        window.history.back();
+    }
+</script>

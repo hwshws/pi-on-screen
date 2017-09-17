@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/bootstrap.min.css">
-    <!--<link rel="stylesheet" href="css/bootstrap-theme.min.css">-->
     <meta name="description" content="Das Urspringer Schwarze Brett - nur zum internen Gebrauch">
     <meta name="author" content="HWS">
     <title>USB - Urspringer Schwarzes Brett</title>
@@ -31,6 +30,7 @@
 <body>
 
 <div class="container-fluid" id="INHALT">
+<div class="container-fluid">
     <br>
 
     <div class="row">
@@ -47,14 +47,17 @@
                     <h3>
                         <div id="vplan"></div>
                     </h3>
+                    <h3 id="vplan"></h3>
                 </div>
             </div><!-- /VERTRETUNGSPLAN -->
+            </div><!-- /VERTRETUNGSPLAN / Bekanntmachungen -->
 
             <!--Fahrplan -->
 
             <div class="panel panel-success">
                 <div class="panel-heading">
                     <h4><b> Ihre nächsten Verbindungen </b></h4>
+                    <h4><b> Ihre nächsten Verbindungen </b></h4> <!-- TODO: JSON -->
                 </div>
                 <div class="panel-body inhalte" id="fahrplan">
                     <div id="content"><img
@@ -70,6 +73,8 @@
                 <div class="panel-body" id="zitat">
                     <h4><b><?php $zitat = file_get_contents('zitatdestages.txt');
                             echo $zitat; ?></b></h4></div> <!--Cronjob sollte laufen -->
+                    <h4><?php $zitat = file_get_contents('zitatdestages.txt');
+                            echo $zitat; ?></h4></div> <!--Cronjob sollte laufen -->
 
             </div>
             <!-- UHRZEIT -->
@@ -91,6 +96,7 @@
                     <h4><b> Speiseplan - Testphase </b></h4>
                 </div>
                 <div class="panel-body">
+                <div class="panel-body" style=" padding: !important;0px;">
 
                     <h3 id="mensa"></h3>
 
@@ -145,10 +151,11 @@
                 </div>
             </div><!-- /NEWSTICKER -->
 
-            <p align="right"><img src="logow.png" alt="Logo der Urspringschule" class="pull-right" width="68"
+            <p align="right"><img src="logo.svg" alt="Logo der Urspringschule" class="pull-right" width="68"
                                   height="51"></p> <!-- Nettes Urspringlogo -->
             <p>
                 Version 1.5.1-ay vom 13.09.17 <br> proudly presented by OJJGHSKPLH
+                Version 1.5.2-ay vom 16.09.17 <br> proudly presented by OJJGHSKPLH
             </p>
         </div><!-- /RECHTE SPALTE -->
 
@@ -173,8 +180,11 @@
 
     }, 900000);
     setInterval(function () {
+    }, 15 * 60 * 1000);
+    //setInterval(function () { FIXME: Braucht man das noch?
 
     }, 60 * 1000);
+//    }, 60 * 1000);
 
     $(document).ready(function () {
         $("#news").load('news.php')
