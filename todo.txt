@@ -2,8 +2,8 @@ TODO für V 1.6
   - Daten sammeln
     - VPlan --Aufgabe--
     - Mensa --ständig neu aktuell-- --> Webpage
-    - AJAX, JQuerry - auf einem guten Weg
-    - Fahrplan -- JSON
+    - AJAX, JQuerry - auf einem guten Weg CKECK
+    - Fahrplan -- JSON CHECK
     -
 
 

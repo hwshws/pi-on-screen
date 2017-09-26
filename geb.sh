@@ -8,9 +8,9 @@
 #if $(today) == $(TABELE_TT.MM)
 #then $(toyear) - $(TABLE_JJJJ)
 # Ausgabe geb.txt
-today=`date +%e.%m `
-year=`date +%Y`
-Name=Geb_long
+#today=`date +%e.%m `
+#year=`date +%Y`
+Name=Geburtstage
 echo ${Name}
 Folder="/opt/usb"
 #Folder="/home/heinz-wilhelm/pi/vplan/html"

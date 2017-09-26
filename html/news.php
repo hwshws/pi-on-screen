@@ -73,8 +73,3 @@ foreach ($out as $value) {
 }
 
 ?>
-
-//Geburtstage
-<?php
-$geburtstage = file("/opt/usb/Geburtstage.csv")
-?>

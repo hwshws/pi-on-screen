@@ -1,7 +1,7 @@
 #!/bin/bash
 #12/03/16 by hwshws
 #Klaut sich den V-Plan vom U-Server und verararbeitet das HTML an USB
-cd ~/vplan/docx2txt
+cd /opt/usb
 rm Vertretungsplan.txt
 rm Vertretungsplan.docx
 wget http://comenius.urspringschule.de/urspring/Vertretungsplan.docx
