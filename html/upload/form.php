@@ -5,7 +5,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
     <!--<link rel="stylesheet" href="css/bootstrap-theme.min.css">-->
     <meta name="description" content="Das Urspringer Schwarze Brett - Backend">
     <meta name="author" content="HWS">
@@ -75,6 +75,15 @@
                 </div>
             </div>
 
+            <!-- Password Input-->
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="password">Passwort</label>
+                <div class="col-md-4">
+                    <input id="password" name="password" class="form-control input-md"
+                           required=""
+                           type="password" placeholder="Passwort eingeben">
+                </div>
+            </div>
             <!-- Button -->
             <div class="form-group">
                 <label class="col-md-4 control-label" for="send">Abschicken</label>
@@ -106,7 +115,7 @@
     ?>
 </div>
 <div class="view" id="mensa-view">
-    <form method="post" action="upload/upload.php?filename=Speiseplan" enctype="multipart/form-data">
+    <form method="post" action="upload.php?filename=Speiseplan" enctype="multipart/form-data">
         <fieldset>
             <!-- Form Name -->
             <legend>USB Speiseplan</legend>
@@ -128,7 +137,7 @@
     </form>
 </div>
 <div class="view" id="geb-view">
-    <form method="post" action="upload/upload.php?filename=Geburtstage" enctype="multipart/form-data">
+    <form method="post" action="upload.php?filename=Geburtstage" enctype="multipart/form-data">
         <fieldset>
             <!-- Form Name -->
             <legend>USB Geburtstage</legend>
@@ -151,12 +160,12 @@
 </div>
 
 <!-- JavaScript goes last for the page to load faster -->
-<script type="application/javascript" src="js/jquery.min.js"></script>
-<script type="application/javascript" src="js/bootstrap.min.js"></script>
+<script type="application/javascript" src="../js/jquery.min.js"></script>
+<script type="application/javascript" src="../js/bootstrap.min.js"></script>
 <script type="text/javascript">
     $(document).ready(() => {
         document.querySelectorAll('.view-btn').forEach(btn => {
-            btn.onclick =  function () {
+            btn.onclick = function () {
                 let viewName = this.id.replace('btn-', '');
                 let view = document.querySelector('#' + viewName + '-view');
                 if (view) {

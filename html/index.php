@@ -10,7 +10,11 @@
     <!--<link rel="stylesheet" href="css/style.css"> -->
     <script language="javascript" type="text/javascript" src="uhr.js"></script>
     <!-- <script type="application/javascript" src="js/jquery.min.js"></script> -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
     <style type="text/css">
+        html body {
+            font-family: 'Roboto', sans-serif;
+        }
         .inhalte {
             font-size: 1.5em;
             margin: 0px 0 -5px;
