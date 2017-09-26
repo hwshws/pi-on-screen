@@ -26,6 +26,26 @@
         .fahrplan > tr > td {
             padding-right: 15px;
         }
+
+        #vplan {
+            margin: 6px 0 2px;
+        }
+
+        .wetter-img {
+            width: 175px;
+            padding 0 5px;
+            margin: 0 auto;
+            float: left;
+        }
+
+        .wetter-text {
+            /*font-family: Arial;*/
+            text-align: center;
+            border: solid 1px #000000;
+            background: #DCEDE0;
+            width: 155px;
+            padding: 4px;
+        }
     </style>
 </head>
 <body>
@@ -41,10 +61,7 @@
                 <div class="panel-heading">
                     <h4><b> <!--     Vertretungsplan /--> Bekanntmachungen </b></h4>
                 </div>
-                <div>
-                    <h3>
-                        <div id="vplan"></div>
-                    </h3>
+                <div class="panel-body">
                     <h3 id="vplan"></h3>
                 </div>
             </div><!-- /VERTRETUNGSPLAN -->
@@ -57,6 +74,7 @@
                     <h4><b> Ihre nächsten Verbindungen </b></h4>
                 </div>
                 <div class="panel-body" id="fahrplan">
+                    <h3>Der Fahrplan ist zur Zeit nicht verfügbar</h3>
                 </div>
             </div> <!--Cronjob sollte laufen -->
             <!-- /Fahrplan -->
@@ -65,17 +83,25 @@
                 <div class="panel-heading">
                     <h4><b> Zitat des Tages </b></h4>
                 </div>
-                <div class="panel-body" id="zitat"> </div>
-                 <!--Cronjob sollte laufen -->
-                <h4><?php $zitat = file_get_contents('zitatdestages.txt');
-                    echo $zitat; ?></h4></div> <!--Cronjob sollte laufen -->
+                <div class="panel-body" id="zitat">
+                    <h4><?php $zitat = file_get_contents('zitatdestages.txt');
+                        echo $zitat; ?></h4>
+                </div>
+                <!--Cronjob sollte laufen -->
+            </div>
+            <!-- Geburtstage -->
+            <div id="geb"></div>
             <!-- UHRZEIT -->
             <div class="panel panel-default">
-                <div class="panel-body" id="uhrzeit" style="text-align:right;">
+                <div class="panel-body" id="uhrzeit">
                     <span style="font-size:2.0em;"><div id="ZeitBox01"><div id="ZeitAnzeige"></div></div></span>
                 </div>
             </div><!-- /UHRZEIT -->
-
+            <p align="right"><img src="logow.png" alt="Logo der Urspringschule" class="pull-right" width="70"
+                                  height="53"></p> <!-- Nettes Urspringlogo -->
+            <p>
+                Version 1.6-ay vom 19.09.17 <br> proudly presented by OJJGHSKPLHTK
+            </p>
         </div><!-- /LINKE SPALTE -->
 
 
@@ -87,14 +113,12 @@
                 <div class="panel-heading">
                     <h4><b> Speiseplan - Testphase </b></h4>
                 </div>
-                <div class="panel-body">
-                    <div class="panel-body" style=" padding: !important;0px;">
+                <div class="panel-body" style=" padding: !important;0px;">
 
-                        <h3 id="mensa"></h3>
+                    <!--                        <h3 id="mensa"></h3>-->
 
-                        <h3 id="mensa" style="margin-top: 6px; margin-bottom: 2px;"></h3>
+                    <h3 id="mensa" style="margin-top: 6px; margin-bottom: 2px;"></h3>
 
-                    </div>
                 </div>
             </div><!-- /SPEISEPLAN -->
             <!-- Wetter -->
@@ -107,23 +131,20 @@
 
                     <div style="width: 800px;">
 
-                        <div style="width: 175px; padding-top: 0px; padding-bottom: 0px; padding-left: 5px; padding-right: 5px; float: left;">
-                            <div id='tameteo'
-                                 style='font-family:Arial;text-align:center;border:solid 1px #000000; background:#DCEDE0; width:155px; padding:4px'>
+                        <div class="wetter-img">
+                            <div class="wetter-text" id='tameteo'>
                                 <b>Urspring</b><br/> <img
                                         src='http://www.mein-wetter.com/widget4/a9f47ef2e83b474d91fe89c8a6cb5491.png'
                                         id="wetteru" border='0'><br/></div>
                         </div>
-                        <div style="width: 175px; padding-top: 0px; padding-bottom: 0px; padding-left: 5px; padding-right: 5px; float: left;">
-                            <div id='tameteo'
-                                 style='font-family:Arial;text-align:center;border:solid 1px #000000; background:#DCEDE0; width:155px; padding:4px'>
+                        <div class="wetter-img">
+                            <div class="wetter-text" id='tameteo'>
                                 <b>Ulm</b><br/><img
                                         src='http://www.mein-wetter.com/widget4/1e3523ed49934f8ba2800a5dc7946e8d.png'
                                         id="wetterulm" border='0'><br/></div>
                         </div>
-                        <div style="width: 175px; padding-top: 0px; padding-bottom: 0px; padding-left: 5px; padding-right: 5px; float: left;">
-                            <div id='tameteo'
-                                 style='font-family:Arial;text-align:center;border:solid 1px #000000; background:#DCEDE0; width:155px; padding:4px'>
+                        <div class="wetter-img">
+                            <div class="wetter-text" id='tameteo'>
                                 <b>Stuttgart</b><br/><img
                                         src='http://www.mein-wetter.com/widget4/30119a98e2384faaaad7e88ee0bdb3b2.png'
                                         id="wetterstr" border='0'><br/></div>
@@ -144,16 +165,11 @@
                 </div>
             </div><!-- /NEWSTICKER -->
 
-            <p align="right"><img src="logo.svg" alt="Logo der Urspringschule" class="pull-right" width="68"
-                                  height="51"></p> <!-- Nettes Urspringlogo -->
-            <p>
-                Version 1.5.2-ay vom 19.09.17 <br> proudly presented by OJJGHSKPLH
-            </p>
         </div><!-- /RECHTE SPALTE -->
 
     </div><!-- /.row -->
 </div>
-</div><!-- /.container -->
+<!-- /.container -->
 
 <!-- JavaScript goes last for the page to load faster -->
 <script type="application/javascript" src="js/jquery.min.js"></script>
@@ -163,33 +179,33 @@
         document.getElementById("fahrplan").src = "https://vrrf.finalrewind.org/Schelklingen/Schelklingen.png?frontend=png&backend=efa.DING";
 
     }, 60 * 1000);*/
-
-    setInterval(function () {
-        document.getElementById("wetterulm").src = "http://www.mein-wetter.com/widget4/1e3523ed49934f8ba2800a5dc7946e8d.png";
-        document.getElementById("wetteru").src = "http://www.mein-wetter.com/widget4/a9f47ef2e83b474d91fe89c8a6cb5491.png";
-        document.getElementById("wetterstr").src = "http://www.mein-wetter.com/widget4/30119a98e2384faaaad7e88ee0bdb3b2.png";
-
-    }, 15 * 60 * 1000);
-
     $(document).ready(function () {
+        setInterval(function () {
+            document.getElementById("wetterulm").src = "http://www.mein-wetter.com/widget4/1e3523ed49934f8ba2800a5dc7946e8d.png";
+            document.getElementById("wetteru").src = "http://www.mein-wetter.com/widget4/a9f47ef2e83b474d91fe89c8a6cb5491.png";
+            document.getElementById("wetterstr").src = "http://www.mein-wetter.com/widget4/30119a98e2384faaaad7e88ee0bdb3b2.png";
+
+        }, 15 * 60 * 1000);
+
         $("#news").load('news.php');
         setInterval(function () {
             $("#news").load('news.php');
         }, 5 * 60 * 1000);
-    });
 
-    $(document).ready(function () {
-        $("#vplan").load('vplan.php');
-        setInterval(function () {
-            $("#vplan").load('vplan.php');
-        }, 10 * 60 * 1000);
-    });
-
-    $(document).ready(function () {
         $("#mensa").load('mensa.php');
         setInterval(function () {
             $("#mensa").load('mensa.php');
         }, 30 * 60 * 1000);
+
+        $("#vplan").load('vplan.php');
+        setInterval(function () {
+            $("#vplan").load('vplan.php');
+        }, 10 * 60 * 1000);
+
+        $("#geb").load('geb.php');
+        setInterval(function () {
+            $("#geb").load('geb.php');
+        }, 2 * 60 * 60 * 1000);
     });
 
     function refreshSchedule(id) {
@@ -205,6 +221,9 @@
                     data.preformatted.forEach(zugData => {
                         let row = document.createElement('tr');
                         zugData.forEach(text => {
+                            text = text.replace(' InterRegioExpress', '')
+                                .replace(' Regional-Express', '')
+                                .replace(' Regionalbahn', '');
                             let entry = document.createElement('td');
                             entry.innerText = text;
                             row.appendChild(entry);

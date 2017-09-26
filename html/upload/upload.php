@@ -7,7 +7,8 @@
 <body>
 <?php
 $filename = $_GET['filename'];
-$target_dir = "/opt/usb/";
+$target_dir = "/opt/usb/"; // TEST
+//$target_dir = "/homepages/38/d139650057/htdocs/";  //on Server
 $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
 $uploadOk = 1;
 $fileType = pathinfo($target_file,PATHINFO_EXTENSION);
