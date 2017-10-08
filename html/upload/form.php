@@ -50,7 +50,6 @@
 </noscript>
 <div class="view" id="info-view">
     <form class="form-horizontal" method="post" action="ausw.php">
-        <?php $pepper = 'bisschenPfeffer?'; ?>
         <fieldset>
             <!-- Form Name -->
             <legend>Urspringer Schwarzes Brett - Bekanntmachungen</legend>
@@ -116,82 +115,48 @@
     ?>
 </div>
 <div class="view" id="mensa-view">
-    <form method="post" action="upload.php?filename=Speiseplan" enctype="multipart/form-data" class="form-horizontal">
+    <form method="post" action="upload.php?filename=Speiseplan" enctype="multipart/form-data">
         <fieldset>
             <!-- Form Name -->
             <legend>USB Speiseplan</legend>
-            <!-- File Button -->
             <div class="form-group">
-                <label class="col-md-4 control-label" for="filebutton">Speiseplan hochladen</label>
-                <div class="col-md-4">
-                    <input id="filebutton" name="filebutton" class="input-file" type="file">
-                </div>
+                <input type="file" name="fileToUpload" id="fileToUpload">
             </div>
-            <!-- Password input-->
+            <p class="small"><?php
+                $target_dir = "/opt/usb/";
+                if (file_exists($target_dir . "Speiseplan.xls")) {
+                    echo "Speiseplan wurde zuletzt modifiziert: " . date("F d Y H:i:s.", filemtime($target_dir . "Speiseplan.xls"));
+                } elseif (file_exists($target_dir . "Speiseplan.xlcx")) {
+                    echo "Speiseplan wurde zuletzt modifiziert: " . date("F d Y H:i:s.", filemtime($target_dir . "Speiseplan.xlcx"));
+                }
+                ?></p>
             <div class="form-group">
-                <label class="col-md-4 control-label" for="password">Passwort</label>
-                <div class="col-md-4">
-                    <input id="password" name="password" type="password" placeholder="Bitte Passwort eingeben"
-                           class="form-control input-md">
-                </div>
-            </div>
-            <!-- Button -->
-            <div class="form-group">
-                <label class="col-md-4 control-label" for="send">Abschicken</label>
-                <div class="col-md-4">
-                    <button id="send" name="send" class="btn btn-info">Senden</button>
-                </div>
+                <button id="send" name="send" class="btn btn-info">Hochladen</button>
             </div>
         </fieldset>
     </form>
-    <p class="small"><?php
-        $target_dir = "/opt/usb/";
-        if (file_exists($target_dir . "Speiseplan.xls")) {
-            echo "Speiseplan wurde zuletzt modifiziert: " . date("F d Y H:i:s.", filemtime($target_dir . "Speiseplan.xls"));
-        } elseif (file_exists($target_dir . "Speiseplan.xls  x")) {
-            echo "Speiseplan wurde zuletzt modifiziert: " . date("F d Y H:i:s.", filemtime($target_dir . "Speiseplan.xlcx"));
-        }
-        ?></p>
 </div>
 <div class="view" id="geb-view">
-    <form method="post" action="upload.php?filename=Geburtstage" enctype="multipart/form-data" class="form-horizontal">
+    <form method="post" action="upload.php?filename=Geburtstage" enctype="multipart/form-data">
         <fieldset>
             <!-- Form Name -->
             <legend>USB Geburtstage</legend>
             <div class="form-group">
-                <label class="col-md-4 control-label" for="filebutton">Geburtstage hochladen</label>
-                <div class="col-md-4">
-                    <input id="filebutton" name="filebutton" class="input-file" type="file">
-                </div>
+                <input type="file" name="fileToUpload" id="fileToUpload">
             </div>
-            <!-- Password input-->
+            <p class="small"><?php
+                $target_dir = "/opt/usb/";
+                if (file_exists($target_dir . "Geburtstage.xls")) {
+                    echo "Gebutstagsliste wurde zuletzt modifiziert: " . date("F d Y H:i:s.", filemtime($target_dir . "Geburtstage.xls"));
+                } elseif (file_exists($target_dir . "Geburtstage.xlsx")) {
+                    echo "Gebutstagsliste wurde zuletzt modifiziert: " . date("F d Y H:i:s.", filemtime($target_dir . "Geburtstage.xlsx"));
+                }
+                ?></p>
             <div class="form-group">
-                <label class="col-md-4 control-label" for="password">Passwort</label>
-                <div class="col-md-4">
-                    <input id="password" name="password" type="password" placeholder="Bitte Passwort eingeben"
-                           class="form-control input-md">
-                </div>
+                <button id="send" name="send" class="btn btn-info">Hochladen</button>
             </div>
-            <!-- Button -->
-            <div class="form-group">
-                <label class="col-md-4 control-label" for="send">Abschicken</label>
-                <div class="col-md-4">
-                    <button id="send" name="send" class="btn btn-info">Senden</button>
-                </div>
-            </div>
-
-
-
         </fieldset>
     </form>
-    <p class="small"><?php
-        $target_dir = "/opt/usb/";
-        if (file_exists($target_dir . "Geburtstage.xls")) {
-            echo "Gebutstagsliste wurde zuletzt modifiziert: " . date("F d Y H:i:s.", filemtime($target_dir . "Geburtstage.xls"));
-        } elseif (file_exists($target_dir . "Geburtstage.xlsx")) {
-            echo "Gebutstagsliste wurde zuletzt modifiziert: " . date("F d Y H:i:s.", filemtime($target_dir . "Geburtstage.xlsx"));
-        }
-        ?></p>
 </div>
 
 <!-- JavaScript goes last for the page to load faster -->
