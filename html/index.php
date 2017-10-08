@@ -15,6 +15,7 @@
         html body {
             font-family: 'Roboto', sans-serif;
         }
+
         .inhalte {
             font-size: 1.5em;
             margin: 0px 0 -5px;
@@ -211,6 +212,31 @@
             $("#geb").load('geb.php');
         }, 2 * 60 * 60 * 1000);
     });
+
+    //scrolly scrolly
+    /*const body = document.body
+        , html = document.documentElement;
+    let height = Math.max(body.scrollHeight, body.offsetHeight, html.clientHeight, html.scrollHeight, html.offsetHeight)
+        , diff = height - window.innerHeight;
+    if (diff > 0) {
+        (function loop(i) {
+            if (i > 0) {
+                window.scrollBy(0, diff / 4);
+                if (i < 4)
+                    setTimeout(() => loop(i++), 250);
+                else {
+                    setTimeout(() => loop(-1), 5000);
+                }
+            } else {
+                window.scrollBy(0, -(diff / 4));
+                if (i > -4)
+                    setTimeout(() => loop(i--), 250);
+                else {
+                    setTimeout(() => loop(1), 5000);
+                }
+            }
+        })(1);
+    }*/
 
     function refreshSchedule(id) {
         const url = 'https://vrrf.finalrewind.org/Schelklingen/Schelklingen.json?frontend=json&backend=efa.DING'
