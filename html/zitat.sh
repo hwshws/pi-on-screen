@@ -1,6 +1,6 @@
 #!/bin/bash
 name="zitatdestages"
-Folder="/home/heinz-wilhelm/pi-on-screen/html"
+Folder="/home/pi/vplan/html"
 # Folder="/home/heinz-wilhelm/pi-on-screen/html"
 cd ${Folder}
 a=0
