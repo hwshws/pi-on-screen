@@ -6,6 +6,7 @@
 </header>
 <body>
 <?php
+$pepper = 'bisschenPfeffer?';
 if ($_POST['password'] == 'Achtopf') {
 
 //{
