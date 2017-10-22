@@ -123,12 +123,12 @@
                 <input type="file" name="fileToUpload" id="fileToUpload">
             </div>
             <p class="small"><?php
-                $target_dir = "/opt/usb/";
+                /*$target_dir = "/opt/usb/";
                 if (file_exists($target_dir . "Speiseplan.xls")) {
                     echo "Speiseplan wurde zuletzt modifiziert: " . date("F d Y H:i:s.", filemtime($target_dir . "Speiseplan.xls"));
                 } elseif (file_exists($target_dir . "Speiseplan.xlcx")) {
                     echo "Speiseplan wurde zuletzt modifiziert: " . date("F d Y H:i:s.", filemtime($target_dir . "Speiseplan.xlcx"));
-                }
+                }*/
                 ?></p>
             <div class="form-group">
                 <button id="send" name="send" class="btn btn-info">Hochladen</button>
@@ -145,12 +145,12 @@
                 <input type="file" name="fileToUpload" id="fileToUpload">
             </div>
             <p class="small"><?php
-                $target_dir = "/opt/usb/";
+                /*$target_dir = "/opt/usb/";
                 if (file_exists($target_dir . "Geburtstage.xls")) {
                     echo "Gebutstagsliste wurde zuletzt modifiziert: " . date("F d Y H:i:s.", filemtime($target_dir . "Geburtstage.xls"));
                 } elseif (file_exists($target_dir . "Geburtstage.xlsx")) {
                     echo "Gebutstagsliste wurde zuletzt modifiziert: " . date("F d Y H:i:s.", filemtime($target_dir . "Geburtstage.xlsx"));
-                }
+                }*/
                 ?></p>
             <div class="form-group">
                 <button id="send" name="send" class="btn btn-info">Hochladen</button>

@@ -12,6 +12,7 @@ ini_set('display_startup_errors', TRUE);
 date_default_timezone_set('Europe/Berlin');
 define('__ROOT__', dirname(dirname(__FILE__)));
 require_once(__ROOT__ . '/Classes/PHPExcel.php');
+require_once(__ROOT__ . '/config.php');
 $filename = $_GET['filename'];
 $target_dir = "/opt/usb/"; // TEST
 //$target_dir = "/homepages/38/d139650057/htdocs/";  //on Server
@@ -42,6 +43,7 @@ if ($uploadOk == 0) {
 } else {
     $objReader = new PHPExcel_Reader_Excel5();
     $objReader->setReadDataOnly(true);
+    $pdo = new PDO('mysql:host=localhost;dbname=usb', $user, $pass);
     if ($filename == "Speiseplan") {
         $objReader->setLoadSheetsOnly('Plan Mittag');
         $objPHPExcel = $objReader->load($_FILES["fileToUpload"]["tmp_name"]);
@@ -52,17 +54,56 @@ if ($uploadOk == 0) {
         $ende = $matches[1][0] . '.' . $matches[2][0];
         $date = new DateTime($start);
         $colums = array('B', 'C', 'D', 'E', 'F');
-        $essen = array();
+        //$essen = array();
+        $errors = array();
+        $statement = $pdo->prepare("INSERT INTO mensa (Datum, Mittag, Vegetarisch, Nachtisch, Abend) 
+            VALUES (:date, :Mittag, :Vegetarisch, :Nachtisch, :Abend) 
+            ON DUPLICATE KEY UPDATE Mittag = :Mittag, Vegetarisch = :Vegetarisch, Nachtisch = :Nachtisch, Abend = :Abend");
         for ($i = 0; $i < 5; $i++) {
             $mittag = $objPHPExcel->getActiveSheet()->getCell($colums[$i] . '4')->getOldCalculatedValue();
             $vegetarisch = $objPHPExcel->getActiveSheet()->getCell($colums[$i] . '5')->getOldCalculatedValue();
             $nachtisch = $objPHPExcel->getActiveSheet()->getCell($colums[$i] . '6')->getOldCalculatedValue();
             $abend = $objPHPExcel->getActiveSheet()->getCell($colums[$i] . '10')->getOldCalculatedValue();
-            $essen[$date->format('d.m')] = array($mittag, $vegetarisch, $nachtisch, $abend);
+            //$essen[$date->format('d.m')] = array($mittag, $vegetarisch, $nachtisch, $abend);
+            $statement->execute(array(":date" => $date->format('d.m.Y'), ":Mittag" => $mittag,
+                ":Vegetarisch" => $vegetarisch, ":Nachtisch" => $nachtisch, ":Abend" => $abend));
+            if ($statement->errorCode() != "00000") {
+                array_push($errors, $statement->errorCode());
+            }
             $date->modify('+1 day');
         }
-        var_dump($essen);
+        if (sizeof($errors) == 0) {
+            echo "<h2>Update erfolgreich</h2>";
+        } else {
+            echo '<h2 style="color: red"> Ein Fehler ist aufgetreten </h2><p style="font-size: small">Fehler-Codes:' . var_dump($errors) . '</p> ';
+        }
+    } else if ($filename == "Geburtstage") {
+        $errors = array();
+        $objPHPExcel = $objReader->load($_FILES["fileToUpload"]["tmp_name"]);
+        $i = 2;
+        $statement = $pdo->prepare("INSERT INTO geb (Datum, Vorname, Nachname) VALUES (?,?,?)");
+        while (true) {
+            if ($objPHPExcel->getActiveSheet()->getCell('A' . $i)->getValue() == "") {
+                break;
+            }
+            $dateTime = DateTime::createFromFormat('j/n/Y', $objPHPExcel->getActiveSheet()->getCell('C' . $i)->getValue());
+            $vorname =  $objPHPExcel->getActiveSheet()->getCell('B' . $i)->getValue();
+            $nachname =  $objPHPExcel->getActiveSheet()->getCell('A' . $i)->getValue();
+            $statement->execute(array($dateTime->format('d.m'), $vorname, $nachname));
+            $i++;
+
+            if ($statement->errorCode() != "00000") {
+                array_push($errors, $statement->errorCode());
+            }
+        }
+
+        if (sizeof($errors) == 0) {
+            echo "<h2>Update erfolgreich</h2>";
+        } else {
+            echo '<h2 style="color: red"> Ein Fehler ist aufgetreten </h2><p style="font-size: small">Fehler-Codes:' . var_dump($errors) . '</p> ';
+        }
     }
+    $pdo = null;
 }
 ?> <br><br>
 <button onclick="window.history.back()">Zurück!</button>

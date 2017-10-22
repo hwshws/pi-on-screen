@@ -1,17 +1,11 @@
 <?php
-date_default_timezone_set('Europe/Berlin');
-$date = date('d' . '.' . 'm');
+define('__ROOT__', dirname(__FILE__));
+require_once(__ROOT__ . '/config.php');
+$date = date('d.m');
 $array = array();
-if (($handle = fopen("/opt/usb/Geburtstage.csv", "r")) !== FALSE) {
-    while (($data = fgetcsv($handle)) !== FALSE) {
-        //data Vorname Nachname Geburtstag Geburtsjahr
-        if ($date == $data[2]) {
-            $alter = date('Y') - $data[3];
-            $entry = $data[0] . " " . $data[1] . " (" . $alter . ")";
-            array_push($array, $entry);
-        }
-    }
-    fclose($handle);
+$pdo = new PDO('mysql:host=localhost;dbname=usb', $user, $pass);
+foreach ($pdo->query('SELECT FROM geb WHERE Datum = ' . $date) as $row) {
+    array_push($array, $row["Vorname"] . $row["Nachname"]);
 }
 if (count($array) > 0) {
     echo '<div class="panel panel-success">';
