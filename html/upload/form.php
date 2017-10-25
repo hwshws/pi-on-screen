@@ -49,7 +49,7 @@
     <h3 class="aktuell">Diese Seite benötigt Javascript</h3>
 </noscript>
 <div class="view" id="info-view">
-    <form class="form-horizontal" method="post" action="ausw.php">
+    <form class="form-horizontal" method="post" action="upload.php?filename=Text">
         <fieldset>
             <!-- Form Name -->
             <legend>Urspringer Schwarzes Brett - Bekanntmachungen</legend>
@@ -131,6 +131,19 @@
                 }*/
                 ?></p>
             <div class="form-group">
+                <label for="start">Start Tag</label>
+                <input type="date" name="start" id="start">
+            </div>
+            <!-- Password Input-->
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="password">Passwort</label>
+                <div class="col-md-4">
+                    <input id="password" name="password" class="form-control input-md"
+                           required=""
+                           type="password" placeholder="Passwort eingeben">
+                </div>
+            </div>
+            <div class="form-group">
                 <button id="send" name="send" class="btn btn-info">Hochladen</button>
             </div>
         </fieldset>
@@ -152,6 +165,15 @@
                     echo "Gebutstagsliste wurde zuletzt modifiziert: " . date("F d Y H:i:s.", filemtime($target_dir . "Geburtstage.xlsx"));
                 }*/
                 ?></p>
+            <!-- Password Input-->
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="password">Passwort</label>
+                <div class="col-md-4">
+                    <input id="password" name="password" class="form-control input-md"
+                           required=""
+                           type="password" placeholder="Passwort eingeben">
+                </div>
+            </div>
             <div class="form-group">
                 <button id="send" name="send" class="btn btn-info">Hochladen</button>
             </div>

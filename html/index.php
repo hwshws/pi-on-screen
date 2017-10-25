@@ -88,9 +88,8 @@
                 <div class="panel-heading">
                     <h4><b> Zitat des Tages </b></h4>
                 </div>
-                <div class="panel-body" id="zitat">
-                    <h4><?php $zitat = file_get_contents('zitatdestages.txt');
-                        echo $zitat; ?></h4>
+                <div class="panel-body">
+                    <h4 id="zitat"></h4>
                 </div>
                 <!--Cronjob sollte laufen -->
             </div>
@@ -105,7 +104,7 @@
             <p align="right"><img src="logow.png" alt="Logo der Urspringschule" class="pull-right" width="70"
                                   height="53"></p> <!-- Nettes Urspringlogo -->
             <p>
-                Version 1.6-ay vom 19.09.17 <br> proudly presented by OJJGHSKPLHTK
+                Version 1.7 vom 24.10.17 <br> proudly presented by OJJGHSKPLHTK
             </p>
         </div><!-- /LINKE SPALTE -->
 
@@ -210,6 +209,11 @@
         $("#geb").load('geb.php');
         setInterval(function () {
             $("#geb").load('geb.php');
+        }, 2 * 60 * 60 * 1000);
+
+        $("#zitat").load('zitat.php');
+        setInterval(function () {
+            $("#zitat").load('zitat.php');
         }, 2 * 60 * 60 * 1000);
     });
 
