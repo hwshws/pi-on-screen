@@ -94,25 +94,16 @@
 
         </fieldset>
     </form>
-    <h3 class="aktuell"><i>Aktuell zu sehen</i></h3>
-    <?php
-    $lines = file('hws.txt');
-    $letzte_zeile = $lines[count($lines) - 1];
+<!--    <h3 class="aktuell"><i>Aktuell zu sehen</i></h3>-->
 
-    /* rsort($lines);
-    for($i = 0; $i < 20; $i++) {
-    echo nl2br($lines[$i]);
-    }*/
+    <?php /*
+define('__ROOT__', dirname(__FILE__));
+require(__ROOT__ . '../config.php');
+$pdo = new PDO('mysql:host=localhost;dbname=usb', $user, $pass); ?>
+    <div style="display:block; text-align:left; float:left;"><?php echo $pdo->query('SELECT Nachricht from Informationen ORDER BY timestamp DESC LIMIT 1;')->fetch()[0];?></div>
+    <div style="display:block; text-align:right;"><p style="text-align: right; font-style: italic"><?php echo $pdo->query('SELECT Name from Informationen ORDER BY timestamp DESC LIMIT 1;')->fetch()[0];?></p></div>
+    <?php $pdo = null; */ ?>
 
-    $message = file_get_contents('message.txt');
-    echo nl2br($message);
-
-    //echo 'Die letzten Einträge:<br />' ."\n";
-
-    //echo date("d.m.Y-H:i:s ") . "\n";
-    //include 'hws.txt';
-
-    ?>
 </div>
 <div class="view" id="mensa-view">
     <form method="post" action="upload.php?filename=Speiseplan" enctype="multipart/form-data">

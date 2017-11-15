@@ -1,6 +1,8 @@
-<?php echo file_get_contents('http://www.zitate-online.de/zufallszitat.txt'); ?>
+<?php echo file_get_contents('http://www.zitate-online.de/zitatdestages.txt'); ?>
 <script type="text/javascript">
-    let div = document.getElementById('zufallszitat');
-    div.children[0].children[0].outerHTML = div.children[0].children[0].innerText;
-    document.getElementById('zufallszitatlink').remove();
+    let div = document.querySelector('#zitatdestages > strong > a');
+    try {
+        div.outerHTML = div.innerText;
+    } catch (ex) {}
+    document.getElementById('zitatdestageslink').remove();
 </script>
