@@ -54,8 +54,8 @@ if ($_POST['password'] == 'Achtopf') {
             for ($i = 0; $i < 5; $i++) {
                 $mittag = $objPHPExcel->getActiveSheet()->getCell($colums[$i] . '4')->getCalculatedValue();
                 $vegetarisch = $objPHPExcel->getActiveSheet()->getCell($colums[$i] . '5')->getCalculatedValue();
-                $nachtisch = $objPHPExcel->getActiveSheet()->getCell($colums[$i] . '6')->getCalculatedValue();
-                $abend = $objPHPExcel->getActiveSheet()->getCell($colums[$i] . '10')->getCalculatedValue();
+                $nachtisch = $objPHPExcel->getActiveSheet()->getCell($colums[$i] . '7')->getCalculatedValue();
+                $abend = $objPHPExcel->getActiveSheet()->getCell($colums[$i] . '13')->getCalculatedValue();
                 //$essen[$date->format('d.m')] = array($mittag, $vegetarisch, $nachtisch, $abend);
                 //var_dump($objPHPExcel->getActiveSheet()->getCell($colums[$i] . '4')); echo '<br>';
                 $values = array(":Datum" => $date->format('d.m.Y'), ":Mittagessen" => $mittag,
