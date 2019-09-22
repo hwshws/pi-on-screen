@@ -113,18 +113,9 @@
         <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
 
             <!-- SPEISEPLAN -->
-            <div class="panel panel-danger">
-                <div class="panel-heading">
-                    <h4><b> Speiseplan - Testphase </b></h4>
-                </div>
-                <div class="panel-body" style=" padding: !important;0px;">
-
-                    <!--                        <h3 id="mensa"></h3>-->
-
-                    <h3 id="mensa" style="margin-top: 6px; margin-bottom: 2px;"></h3>
-
-                </div>
-            </div><!-- /SPEISEPLAN -->
+            <div id="mensa"></div>
+            <!-- /SPEISEPLAN -->
+            <div id="dienst"></div>
             <!-- Wetter -->
             <div class="panel panel-success">
                 <div class="panel-heading">
@@ -211,6 +202,11 @@
             $("#geb").load('geb.php');
         }, 2 * 60 * 60 * 1000);
 
+        $("#dienst").load('dienst.php');
+        setInterval(function () {
+            $("#dienst").load('dienst.php');
+        }, 2 * 60 * 60 * 1000);
+
         $("#zitat").load('zitat.php');
         setInterval(function () {
             $("#zitat").load('zitat.php');
@@ -257,6 +253,7 @@
                         zugData.forEach(text => {
                             text = text.replace(' InterRegioExpress', '')
                                 .replace(' Regional-Express', '')
+                                .replace(' Hohenzollerische Landesbahn (SWEG)', '')
                                 .replace(' Regionalbahn', '');
                             let entry = document.createElement('td');
                             entry.innerText = text;
