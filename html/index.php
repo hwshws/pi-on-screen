@@ -104,7 +104,7 @@
             <p align="right"><img src="logow.png" alt="Logo der Urspringschule" class="pull-right" width="70"
                                   height="53"></p> <!-- Nettes Urspringlogo -->
             <p>
-                Version 1.7 vom 24.10.17 <br> proudly presented by OJJGHSKPLHTK
+                Version 1.7.1 vom 22.09.2019 <br> proudly presented by OJJGHSKPLHTK
             </p>
         </div><!-- /LINKE SPALTE -->
 

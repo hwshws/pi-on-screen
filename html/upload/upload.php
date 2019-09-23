@@ -35,7 +35,20 @@ if ($_POST['password'] == 'Achtopf') {
         $uploadOk = 0;
     }
 // Check if $uploadOk is set to 0 by an error
-    if ($uploadOk == 0 && $filename != "Text") {
+    if ($uploadOk == 0 && $filename == "Dienst") {
+        $pdo = new PDO('mysql:host=localhost;dbname=usb', $user, $pass);
+        $statement = $pdo->prepare("UPDATE dienst SET klasse = ?");
+        $statement->execute(str_split($_POST['klasse'], 999));
+        if ($statement->errorCode() != "00000") {
+            echo "Error:";
+            echo $statement->errorCode();
+            echo '<br>';
+            $statement->debugDumpParams();
+            echo '<br>';
+        } else {
+            echo "Update erfolgreich";
+        }
+    } else if ($uploadOk == 0 && $filename != "Text") {
         echo "Sorry, da ging was schief!";
 // if everything is ok, try to parsing file
     } else {
@@ -54,8 +67,8 @@ if ($_POST['password'] == 'Achtopf') {
             for ($i = 0; $i < 5; $i++) {
                 $mittag = $objPHPExcel->getActiveSheet()->getCell($colums[$i] . '4')->getCalculatedValue();
                 $vegetarisch = $objPHPExcel->getActiveSheet()->getCell($colums[$i] . '5')->getCalculatedValue();
-                $nachtisch = $objPHPExcel->getActiveSheet()->getCell($colums[$i] . '7')->getCalculatedValue();
-                $abend = $objPHPExcel->getActiveSheet()->getCell($colums[$i] . '13')->getCalculatedValue();
+                $nachtisch = $objPHPExcel->getActiveSheet()->getCell($colums[$i] . '6')->getCalculatedValue();//ex 7
+                $abend = $objPHPExcel->getActiveSheet()->getCell($colums[$i] . '10')->getCalculatedValue(); //ex 13
                 //$essen[$date->format('d.m')] = array($mittag, $vegetarisch, $nachtisch, $abend);
                 //var_dump($objPHPExcel->getActiveSheet()->getCell($colums[$i] . '4')); echo '<br>';
                 $values = array(":Datum" => $date->format('d.m.Y'), ":Mittagessen" => $mittag,
