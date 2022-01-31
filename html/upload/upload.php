@@ -24,7 +24,7 @@ if ($_POST['password'] == 'Achtopf') {
     }
     if ($filename != "Geburtstage" && $filename != "Speiseplan") {
         $uploadOk = 0;
-        echo "Zeile 26";
+        //echo "Zeile 26";
     }
 // Check file size
     if ($_FILES["fileToUpload"]["size"] > 2000000) {
@@ -33,7 +33,7 @@ if ($_POST['password'] == 'Achtopf') {
     }
 // Allow certain file formats
     if ($fileType != "xls" /*&& $fileType != "xlsx"*/) {
-        echo "Filetype FALSCH! 36";
+        //echo "Filetype FALSCH! 36";
         $uploadOk = 0;
     }
 // Check if $uploadOk is set to 0 by an error
