@@ -179,7 +179,7 @@
             document.getElementById("wetterulm").src = "https://www.mein-wetter.com/widget4/displayweather.php?key=1e3523ed49934f8ba2800a5dc7946e8d&time="+new Date().valueOf();
             document.getElementById("wetteru").src = "https://www.mein-wetter.com/widget4/displayweather.php?key=a9f47ef2e83b474d91fe89c8a6cb5491&time="+new Date().valueOf();
             document.getElementById("wetterstr").src = "https://www.mein-wetter.com/widget4/displayweather.php?key=30119a98e2384faaaad7e88ee0bdb3b2&time="+new Date().valueOf();
-        }, 5 * 1000);
+        }, 15 * 60 * 1000);
 
         $("#news").load('news.php');
         setInterval(function () {
