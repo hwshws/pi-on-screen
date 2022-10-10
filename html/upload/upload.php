@@ -1,3 +1,10 @@
+<?php
+
+use PhpOffice\PhpSpreadsheet\Reader\Xlsx;
+
+define('__ROOT__', dirname(dirname(__FILE__)));
+require_once __ROOT__ . '/../vendor/autoload.php';
+?>
 <html>
 <header>
     <meta charset="UTF-8">
@@ -8,8 +15,6 @@
 <body>
 <?php
 if ($_POST['password'] == 'Achtopf') {
-    define('__ROOT__', dirname(dirname(__FILE__)));
-    require_once(__ROOT__ . '/Classes/PHPExcel.php');
     require_once(__ROOT__ . '/config.php');
     $filename = $_GET['filename'];
     //$target_dir = "/opt/usb/"; // TEST
@@ -24,7 +29,7 @@ if ($_POST['password'] == 'Achtopf') {
     }
     if ($filename != "Geburtstage" && $filename != "Speiseplan") {
         $uploadOk = 0;
-        //echo "Zeile 26";
+//        echo "Zeile 26";
     }
 // Check file size
     if ($_FILES["fileToUpload"]["size"] > 2000000) {
@@ -32,8 +37,8 @@ if ($_POST['password'] == 'Achtopf') {
         $uploadOk = 0;
     }
 // Allow certain file formats
-    if ($fileType != "xls" /*&& $fileType != "xlsx"*/) {
-        //echo "Filetype FALSCH! 36";
+    if ($fileType != "xls" && $fileType != "xlsx") {
+//        echo "Filetype FALSCH! 36";
         $uploadOk = 0;
     }
 // Check if $uploadOk is set to 0 by an error
@@ -54,12 +59,24 @@ if ($_POST['password'] == 'Achtopf') {
         echo "Sorry, da ging was schief! Test und so.";
 // if everything is ok, try to parsing file
     } else {
-        $objReader = new PHPExcel_Reader_Excel5();
-        $objReader->setReadDataOnly(true);
+		$pdo = new PDO('mysql:host=localhost;dbname=usb', $user, $pass);
+		$reader = new Xlsx();
+		$spreadsheet = null;
+		if ($reader->canRead($_FILES["fileToUpload"]["tmp_name"])){
+			try {
+				$spreadsheet = $reader->load($_FILES["fileToUpload"]["tmp_name"]);
+				$spreadsheet->setActiveSheetIndex(0);
+			} catch (\PhpOffice\PhpSpreadsheet\Reader\Exception $e) {
+				echo($e->getMessage()."<br>");
+				die("Es gab einen Internen Fehler! E-001");
+			} catch (\PhpOffice\PhpSpreadsheet\Exception $e) {
+				echo($e->getMessage()."<br>");
+				die("Es gab einen Internen Fehler! E-002");
+			}
+		}
+
         $pdo = new PDO('mysql:host=localhost;dbname=usb', $user, $pass);
         if ($filename == "Speiseplan") {
-            $objPHPExcel = $objReader->load($_FILES["fileToUpload"]["tmp_name"]);
-            $objPHPExcel->setActiveSheetIndex(1);
             $date = DateTime::createFromFormat($format = 'Y-m-d', $_POST['start']);
             $colums = array('B', 'C', 'D', 'E', 'F');
             $errors = array();
@@ -67,8 +84,8 @@ if ($_POST['password'] == 'Achtopf') {
             VALUES (:Datum, :Mittagessen, :Vegetarisch, :Nachtisch, :Abend) 
             ON DUPLICATE KEY UPDATE Mittagessen = :Mittagessen, Vegetarisch = :Vegetarisch, Nachtisch = :Nachtisch, Abend = :Abend");
             for ($i = 0; $i < 5; $i++) {
-                $mittag = $objPHPExcel->getActiveSheet()->getCell($colums[$i] . '4')->getCalculatedValue();
-                $vegetarisch = $objPHPExcel->getActiveSheet()->getCell($colums[$i] . '5')->getCalculatedValue();
+                $mittag = $spreadsheet->getActiveSheet()->getCell($colums[$i] . '4')->getCalculatedValue();
+                $vegetarisch = $spreadsheet->getActiveSheet()->getCell($colums[$i] . '5')->getCalculatedValue();
                 if ($vegetarisch === NULL) {
                    $vegetarisch = $mittag;
                    echo nl2br("Dienstag Vegi ".$vegetarisch."\n ");
@@ -76,18 +93,23 @@ if ($_POST['password'] == 'Achtopf') {
                    echo $mittag;
                    //echo $vegetarisch;
                 }
-                $nachtisch = $objPHPExcel->getActiveSheet()->getCell($colums[$i] . '7')->getCalculatedValue();//ex 7
-                $abend = $objPHPExcel->getActiveSheet()->getCell($colums[$i] . '13')->getCalculatedValue(); //ex 13
+                $nachtisch = $spreadsheet->getActiveSheet()->getCell($colums[$i] . '6')->getCalculatedValue();//ex 7
+                $abend = $spreadsheet->getActiveSheet()->getCell($colums[$i] . '10')->getCalculatedValue(); //ex 13
                 //$essen[$date->format('d.m')] = array($mittag, $vegetarisch, $nachtisch, $abend);
-                //var_dump($objPHPExcel->getActiveSheet()->getCell($colums[$i] . '4')); echo '<br>';
-                $values = array(":Datum" => $date->format('d.m.Y'), ":Mittagessen" => $mittag,
-                    ":Vegetarisch" => $vegetarisch, ":Nachtisch" => $nachtisch, ":Abend" => $abend);
-                $statement->execute($values);
+                //var_dump($spreadsheet->getActiveSheet()->getCell($colums[$i] . '4')); echo '<br>';
+                $arrValues = [
+					":Datum" => $date->format('Y-m-d'),
+					":Mittagessen" => $mittag ?? "- Unbekannt -",
+					":Vegetarisch" => $vegetarisch ?? "- Unbekannt -",
+					":Nachtisch" => $nachtisch ?? "- Unbekannt -",
+					":Abend" => $abend ?? "- Unbekannt -"
+				];
+                $statement->execute($arrValues);
                 if ($statement->errorCode() != "00000") {
                     array_push($errors, $statement->errorCode());
                     $statement->debugDumpParams();
                     echo '<br>';
-                    var_dump($values);
+                    var_dump($arrValues);
                     echo '<br>';
                 }
                 $date->modify('+1 day');
@@ -103,16 +125,15 @@ if ($_POST['password'] == 'Achtopf') {
             }
         } else if ($filename == "Geburtstage") {
             $errors = array();
-            $objPHPExcel = $objReader->load($_FILES["fileToUpload"]["tmp_name"]);
             $i = 2;
             $statement = $pdo->prepare("INSERT INTO geb (Datum, Vorname, Nachname) VALUES (:datum,:vorname,:nachname) ON DUPLICATE KEY UPDATE Datum = :Datum");
             while (true) {
-                if ($objPHPExcel->getActiveSheet()->getCell('A' . $i)->getValue() == "") {
+                if ($spreadsheet->getActiveSheet()->getCell('A' . $i)->getValue() == "") {
                     break;
                 }
-                $date = date($format = 'd.m', PHPExcel_Shared_Date::ExcelToPHP($objPHPExcel->getActiveSheet()->getCell('C' . $i)->getValue()));
-                $vorname = $objPHPExcel->getActiveSheet()->getCell('B' . $i)->getValue();
-                $nachname = $objPHPExcel->getActiveSheet()->getCell('A' . $i)->getValue();
+                $date = date($format = 'd.m', $spreadsheet->getActiveSheet()->getCell('C' . $i)->getValue());
+                $vorname = $spreadsheet->getActiveSheet()->getCell('B' . $i)->getValue();
+                $nachname = $spreadsheet->getActiveSheet()->getCell('A' . $i)->getValue();
                 $statement->execute(array(":datum" => $date, ":vorname" => $vorname, ":nachname" => $nachname));
                 $i++;
 

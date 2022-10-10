@@ -1,0 +1,11 @@
+{
+  "name": "hwshws/pi-on-screen",
+  "type": "project",
+  "description": "Das Schwarze Brett Urspring`s",
+  "require": {
+    "phpoffice/phpspreadsheet": "^1.25"
+  },
+  "require-dev": {
+
+  }
+}
