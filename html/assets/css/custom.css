@@ -8,6 +8,7 @@ body.dark .card {
     border-radius: 10px;
 }
 body.dark .card-header {
+    background-color: #000;
     border: none;
     border-radius: 10px 10px 0 0;
 }
@@ -21,12 +22,26 @@ body.dark .card-footer {
     color: #fff;
 }
 
+.card-blue>.card-header { background-color: #4097f3; }
 body.dark .card-blue>.card-header {
     background-color: #0f4679;
     color: #fff;
 }
 
+.card-red>.card-header { background-color: #ea6a6a; }
 body.dark .card-red>.card-header {
     background-color: #790f0f;
+    color: #fff;
+}
+
+.card-yellow>.card-header { background-color: #ffee63; }
+body.dark .card-yellow>.card-header {
+    background-color: #7a6f0f;
+    color: #fff;
+}
+
+.card-green>.card-header { background-color: #9bf89b; }
+body.dark .card-green>.card-header {
+    background-color: #0f7a0f;
     color: #fff;
 }
