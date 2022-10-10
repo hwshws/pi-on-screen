@@ -22,7 +22,7 @@
             <?php
             define('__ROOT__', dirname(__FILE__));
             require(__ROOT__ . '/config.php');
-            $date = date('d.m.Y');
+            $date = date('Y-m-d');
             $pdo = new PDO('mysql:host=localhost;dbname=usb', $user, $pass);
 
             $result = $pdo->query('SELECT * FROM mensa WHERE Datum = "' . $date . '" LIMIT 1;');
