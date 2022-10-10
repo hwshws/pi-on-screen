@@ -1,0 +1,32 @@
+body.dark {
+    background-color: #212121;
+    color: #fff;
+}
+
+body.dark .card {
+    border: none;
+    border-radius: 10px;
+}
+body.dark .card-header {
+    border: none;
+    border-radius: 10px 10px 0 0;
+}
+
+body.dark .card-body {
+    background-color: #585858;
+    color: #fff;
+}
+body.dark .card-footer {
+    background-color: #484848;
+    color: #fff;
+}
+
+body.dark .card-blue>.card-header {
+    background-color: #0f4679;
+    color: #fff;
+}
+
+body.dark .card-red>.card-header {
+    background-color: #790f0f;
+    color: #fff;
+}
