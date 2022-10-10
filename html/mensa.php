@@ -26,10 +26,10 @@
             $pdo = new PDO('mysql:host=localhost;dbname=usb', $user, $pass);
 
             $result = $pdo->query('SELECT * FROM mensa WHERE Datum = "' . $date . '" LIMIT 1;');
-            if ($result == null) {
-                echo "Bite Aushang beachten!";
+			$row = $result->fetch();
+            if (!$row) {
+                echo "Bitte Aushang beachten!";
             } else {
-                $row = $result->fetch();
                 if ($zeit) {
                     echo $row["Abend"] . '<br>';
                 } else {
