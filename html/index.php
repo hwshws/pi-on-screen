@@ -104,7 +104,7 @@
             <p align="right"><img src="logow.png" alt="Logo der Urspringschule" class="pull-right" width="70"
                                   height="53"></p> <!-- Nettes Urspringlogo -->
             <p>
-                Version 1.8. vom 18.07.2021 <br> proudly presented by OJJGHSKPLHTK
+                Version 2.1 vom 10.10.2022 <br> proudly presented by OJJGHSKPLHTKMK
             </p>
         </div><!-- /LINKE SPALTE -->
 
@@ -176,11 +176,10 @@
     }, 60 * 1000);*/
     $(document).ready(function () {
         setInterval(function () {
-            document.getElementById("wetterulm").src = "http://www.mein-wetter.com/widget4/1e3523ed49934f8ba2800a5dc7946e8d.png";
-            document.getElementById("wetteru").src = "http://www.mein-wetter.com/widget4/a9f47ef2e83b474d91fe89c8a6cb5491.png";
-            document.getElementById("wetterstr").src = "http://www.mein-wetter.com/widget4/30119a98e2384faaaad7e88ee0bdb3b2.png";
-
-        }, 15 * 60 * 1000);
+            document.getElementById("wetterulm").src = "https://www.mein-wetter.com/widget4/displayweather.php?key=1e3523ed49934f8ba2800a5dc7946e8d&time="+new Date().valueOf();
+            document.getElementById("wetteru").src = "https://www.mein-wetter.com/widget4/displayweather.php?key=a9f47ef2e83b474d91fe89c8a6cb5491&time="+new Date().valueOf();
+            document.getElementById("wetterstr").src = "https://www.mein-wetter.com/widget4/displayweather.php?key=30119a98e2384faaaad7e88ee0bdb3b2&time="+new Date().valueOf();
+        }, 5 * 1000);
 
         $("#news").load('news.php');
         setInterval(function () {
