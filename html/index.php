@@ -139,9 +139,16 @@
 				<div class="col-xs-12 col-md-6 mb-4">
 					<div class="card h-100">
 						<div class="card-body">
-							<b>Version 2.2 vom 10.10.2022</b>
-							<br>
-							Stolz präsentiert von OJJGHSKPLHTKMK
+							<div class="row">
+								<div class="col-11">
+									<b>Version 2.2 vom 10.10.2022</b>
+									<br>
+									Stolz präsentiert von OJJGHSKPLHTKMK
+								</div>
+								<div class="col">
+									<img src="logow.png" alt="Logo der Urspringschule" class="w-100">
+								</div>
+							</div>
 						</div>
 					</div>
 				</div>
