@@ -6,6 +6,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/flatpickr.min.css">
     <!--<link rel="stylesheet" href="css/bootstrap-theme.min.css">-->
     <meta name="description" content="Das Urspringer Schwarze Brett - Backend">
     <meta name="author" content="HWS">
@@ -190,5 +191,33 @@ $pdo = new PDO('mysql:host=localhost;dbname=usb', $user, $pass); ?>
         document.querySelector('.view').classList.add('active');
     });
 </script>
+	<script src="../js/jquery.min.js"></script>
+	<script src="../js/flatpickr.js"></script>
+	<script>
+        const picker = document.getElementById('start');
+        picker.addEventListener('input', function(e){
+            var pattern = /(\d{2})\.(\d{2})\.(\d{4})/;
+            var dt = new Date(e.target.value.replace(pattern,'$3-$2-$1'));
+            if (dt.getUTCDay() !== 1){
+                alert('Es sind nur Montage erlaubt');
+                picker.value = "";
+            }
+        });
+
+        $(function () {
+            $("#start").flatpickr({
+                enableTime: false,
+                dateFormat: "d.m.Y",
+                "disable": [
+                    function(date) {
+                        return date.getDay() !== 1;  // disable weekends
+                    }
+                ],
+                "locale": {
+                    "firstDayOfWeek": 1 // set start day of week to Monday
+                }
+            });
+        });
+	</script>
 
 </html>
