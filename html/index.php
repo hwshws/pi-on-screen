@@ -126,6 +126,7 @@ require_once __DIR__ . '/assets/php/autoload.php';
 									<b>Version 2.2 vom 10.10.2022</b>
 									<br>
 									Stolz präsentiert von OJJGHSKPLHTKMK
+									<span id="extra_info"></span>
 								</div>
 								<div class="col">
 									<img src="logow.png" alt="Logo der Urspringschule" class="w-100">
@@ -137,5 +138,6 @@ require_once __DIR__ . '/assets/php/autoload.php';
 			</div>
 		</div>
 		<script type="text/javascript" src="assets/js/refreshContents.js"></script>
+		<script type="text/javascript" src="assets/js/easterEggs.js"></script>
 	</body>
 </html>
