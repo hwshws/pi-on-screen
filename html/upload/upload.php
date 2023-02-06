@@ -19,10 +19,7 @@ if ($_POST['password'] == 'Achtopf') {
     $filename = $_GET['filename'];
     //$target_dir = "/opt/usb/"; // TEST
     $target_dir = "/subdomains/comenius/httpdocs/usb/upload";  //on Server
-    $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
     $uploadOk = 1;
-    $fileType = pathinfo($target_file, PATHINFO_EXTENSION);
-    $target_name = $target_dir . $filename . "." . $fileType;
     if ($filename === null) {
         $uploadOk = 0;
         echo "Zeile 22";
@@ -36,11 +33,18 @@ if ($_POST['password'] == 'Achtopf') {
         echo "Sorry, your file is too large.";
         $uploadOk = 0;
     }
-// Allow certain file formats
-    if ($fileType != "xls" && $fileType != "xlsx") {
+
+    // Allow certain file formats
+    if ($filename == "Speiseplan") {
+        $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
+        $fileType = pathinfo($target_file, PATHINFO_EXTENSION);
+        if ($fileType != "xls" && $fileType != "xlsx") {
 //        echo "Filetype FALSCH! 36";
-        $uploadOk = 0;
+            $uploadOk = 0;
+        }
     }
+
+
 // Check if $uploadOk is set to 0 by an error
     if ($uploadOk == 0 && $filename == "Dienst") {
         $pdo = new PDO('mysql:host=localhost;dbname=usb', $user, $pass);
