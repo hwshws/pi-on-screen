@@ -36,6 +36,10 @@ if ($_POST['password'] == 'Achtopf') {
 
     // Allow certain file formats
     if ($filename == "Speiseplan") {
+        if (!isset($_FILES["fileToUpload"])) {
+            echo "Die Datei ist nicht vorhanden!";
+            $uploadOk = 0;
+        }
         $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
         $fileType = pathinfo($target_file, PATHINFO_EXTENSION);
         if ($fileType != "xls" && $fileType != "xlsx") {
@@ -63,21 +67,23 @@ if ($_POST['password'] == 'Achtopf') {
         echo "Sorry, da ging was schief! Test und so.";
 // if everything is ok, try to parsing file
     } else {
-		$pdo = new PDO('mysql:host=localhost;dbname=usb', $user, $pass);
-		$reader = new Xlsx();
-		$spreadsheet = null;
-		if ($reader->canRead($_FILES["fileToUpload"]["tmp_name"])){
-			try {
-				$spreadsheet = $reader->load($_FILES["fileToUpload"]["tmp_name"]);
-				$spreadsheet->setActiveSheetIndex(0);
-			} catch (\PhpOffice\PhpSpreadsheet\Reader\Exception $e) {
-				echo($e->getMessage()."<br>");
-				die("Es gab einen Internen Fehler! E-001");
-			} catch (\PhpOffice\PhpSpreadsheet\Exception $e) {
-				echo($e->getMessage()."<br>");
-				die("Es gab einen Internen Fehler! E-002");
-			}
-		}
+        if (isset($_FILES["fileToUpload"])) {
+            $pdo = new PDO('mysql:host=localhost;dbname=usb', $user, $pass);
+            $reader = new Xlsx();
+            $spreadsheet = null;
+            if ($reader->canRead($_FILES["fileToUpload"]["tmp_name"])){
+                try {
+                    $spreadsheet = $reader->load($_FILES["fileToUpload"]["tmp_name"]);
+                    $spreadsheet->setActiveSheetIndex(0);
+                } catch (\PhpOffice\PhpSpreadsheet\Reader\Exception $e) {
+                    echo($e->getMessage()."<br>");
+                    die("Es gab einen Internen Fehler! E-001");
+                } catch (\PhpOffice\PhpSpreadsheet\Exception $e) {
+                    echo($e->getMessage()."<br>");
+                    die("Es gab einen Internen Fehler! E-002");
+                }
+            }
+        }
 
         $pdo = new PDO('mysql:host=localhost;dbname=usb', $user, $pass);
         if ($filename == "Speiseplan") {
