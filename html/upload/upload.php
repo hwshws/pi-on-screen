@@ -29,7 +29,7 @@ if ($_POST['password'] == 'Achtopf') {
 //        echo "Zeile 26";
     }
 // Check file size
-    if ($_FILES["fileToUpload"]["size"] > 2000000) {
+    if (isset($_FILES["fileToUpload"]) && $_FILES["fileToUpload"]["size"] > 2000000) {
         echo "Sorry, your file is too large.";
         $uploadOk = 0;
     }
