@@ -14,7 +14,7 @@ $arrConfig = [
 	"application" => [
 		"admin_password" => "Achtopf",
 		"debug" => false,
-		"dark_mode" => true
+		"dark_mode" => false
 	]
 ];
 

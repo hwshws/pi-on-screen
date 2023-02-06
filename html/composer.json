@@ -3,7 +3,8 @@
   "type": "project",
   "description": "Das Schwarze Brett Urspring`s",
   "require": {
-    "phpoffice/phpspreadsheet": "^1.25"
+    "phpoffice/phpspreadsheet": "^1.25",
+    "ext-mysqli": "*"
   },
   "require-dev": {
 
