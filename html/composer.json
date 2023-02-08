@@ -4,9 +4,10 @@
   "description": "Das Schwarze Brett Urspring`s",
   "require": {
     "phpoffice/phpspreadsheet": "^1.25",
-    "ext-mysqli": "*"
-  },
-  "require-dev": {
-
+    "ext-mysqli": "*",
+    "ext-zip": "*",
+    "symfony/yaml": "^6.2",
+    "ext-sqlite3": "*",
+    "ext-pdo": "*"
   }
 }

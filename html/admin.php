@@ -1,4 +1,4 @@
 <?php
 require_once 'php/init.php';
 
-die("Index");
+die("Admin");

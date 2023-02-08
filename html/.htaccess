@@ -1,0 +1,22 @@
+Order Allow,Deny
+Deny from all
+
+<Directory "/assets/">
+    Allow from all
+</Directory>
+
+<Directory "/php/ajax/">
+    Allow from all
+</Directory>
+
+<Files "index.php">
+    Allow from all
+</Files>
+
+<Files "admin.php">
+    Allow from all
+</Files>
+
+<Files "dev.php">
+    Allow from all
+</Files>

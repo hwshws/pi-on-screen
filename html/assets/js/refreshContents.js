@@ -4,15 +4,15 @@ function refreshAnnouncements(){
 }
 
 
-function refreshMenu(){
+function refreshMensa(){
 
-    setTimeout(refreshMenu, 1000 * 60 * 30); // 30 minutes
+    setTimeout(refreshMensa, 1000 * 60 * 30); // 30 minutes
 }
 
 
-function refreshTrainTimetable(){
+function refreshTrains(){
 
-    setTimeout(refreshTrainTimetable, 1000 * 60); // 1 minute
+    setTimeout(refreshTrains, 1000 * 60); // 1 minute
 }
 
 
@@ -34,25 +34,7 @@ function refreshQuote(){
 }
 
 
-const secondHand = document.querySelector('.second-hand');
-const minsHand = document.querySelector('.min-hand');
-const hourHand = document.querySelector('.hour-hand');
 function refreshClock() {
-    const now = new Date();
-
-    const seconds = now.getSeconds();
-    const secondsDegrees = ((seconds / 60) * 360) + 90;
-    secondHand.style.transform = `rotate(${secondsDegrees}deg)`;
-
-    const mins = now.getMinutes();
-    const minsDegrees = ((mins / 60) * 360) + ((seconds/60)*6) + 90;
-    minsHand.style.transform = `rotate(${minsDegrees}deg)`;
-
-    const hour = now.getHours();
-    const hourDegrees = ((hour / 12) * 360) + ((mins/60)*30) + 90;
-    hourHand.style.transform = `rotate(${hourDegrees}deg)`;
-
-    //Set digital clock with id "clock_digital"
     var clock_digital = document.getElementById("clock_digital");
     clock_digital.innerHTML = now.getDay()+"."+now.getMonth()+"."+now.getFullYear()+" "+hour + ":" + mins + ":" + seconds;
     setTimeout(refreshClock, 1000);
