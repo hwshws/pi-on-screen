@@ -15,7 +15,7 @@ html/message\.txt
 
 html/log\.txt
 
-\.idea/
+
 
 html/todo\.php
 
@@ -49,3 +49,7 @@ html/upload/message\.txt
 
 config.php
 1\.7\./
+
+html/vendor
+html/database.db
+.idea
