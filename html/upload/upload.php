@@ -88,6 +88,9 @@ if ($_POST['password'] == 'Achtopf') {
         $pdo = new PDO('mysql:host=localhost;dbname=usb', $user, $pass);
         if ($filename == "Speiseplan") {
             $date = DateTime::createFromFormat($format = 'Y-m-d', $_POST['start']);
+	    if (!$date) {
+		$date = DateTime::createFromFormat($format = 'd.m.Y', $_POST['start']);
+	    }
             $colums = array('B', 'C', 'D', 'E', 'F');
             $errors = array();
             $statement = $pdo->prepare("INSERT INTO mensa (Datum, Mittagessen, Vegetarisch, Nachtisch, Abend) 
