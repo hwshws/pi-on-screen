@@ -107,7 +107,7 @@ if ($_POST['password'] == 'Achtopf') {
                    //echo $vegetarisch;
                 }
                 $nachtisch = $spreadsheet->getActiveSheet()->getCell($colums[$i] . '6')->getCalculatedValue();//ex 7
-                $abend = $spreadsheet->getActiveSheet()->getCell($colums[$i] . '10')->getCalculatedValue(); //ex 13
+                $abend = $spreadsheet->getActiveSheet()->getCell($colums[$i] . '8')->getCalculatedValue(); //ex 13
                 //$essen[$date->format('d.m')] = array($mittag, $vegetarisch, $nachtisch, $abend);
                 //var_dump($spreadsheet->getActiveSheet()->getCell($colums[$i] . '4')); echo '<br>';
                 $arrValues = [
